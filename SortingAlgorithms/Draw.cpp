@@ -23,9 +23,8 @@ void Draw::drawArray(RenderWindow& window, std::vector<int> array)
 	rect.setFillColor(Color::White);
 
 	for (int i = 0; i < array.size();i++) {
-		float b = array[i]  * SCR_HEIGHT / array.size();
-		rect.setSize(Vector2f(SCR_WIDTH / array.size(), array[i] / array.size() * SCR_HEIGHT));
-		rect.setPosition(array[i] * (SCR_WIDTH / array.size()), SCR_HEIGHT - (array[i] / array.size() * SCR_HEIGHT));
+		rect.setSize(Vector2f(SCR_WIDTH / array.size(), array[i] * SCR_HEIGHT / array.size()));
+		rect.setPosition(array[i] * (SCR_WIDTH / array.size()), SCR_HEIGHT - (array[i] * SCR_HEIGHT / array.size()));
 		window.draw(rect);
 	}
 }

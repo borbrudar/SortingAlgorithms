@@ -1,13 +1,13 @@
 #pragma once
 #include <vector>
+#include <random>
 
 class GameState {
 public:
 	GameState() {
-		unsortedArray.resize(256);
-		for (int i = 0; i < unsortedArray.size(); i++) {
-			unsortedArray[i] = i;
-		}
+		randomizeUnsortedArray();
 	}
+
+	void randomizeUnsortedArray();
 	std::vector<int> unsortedArray;
 };

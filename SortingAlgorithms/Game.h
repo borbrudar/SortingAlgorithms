@@ -9,7 +9,7 @@ public:
 	Game();
 	void run();
 
-	const int SCR_WIDTH = 640, SCR_HEIGHT = SCR_WIDTH / 4 * 3;
+	const int SCR_WIDTH = 512, SCR_HEIGHT = SCR_WIDTH / 4 * 3;
 private:
 	Draw draw;
 	Update update;

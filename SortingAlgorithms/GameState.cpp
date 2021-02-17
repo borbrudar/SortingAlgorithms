@@ -1,5 +1,10 @@
 #include "GameState.h"
 
+void GameState::sortArray()
+{
+	sortingAlgorithm->sortArray(unsortedArray);
+}
+
 void GameState::randomizeUnsortedArray()
 {
 	int arraySize = 256;
@@ -19,4 +24,9 @@ void GameState::randomizeUnsortedArray()
 		unsortedArray[i] = sortedArray[randomValueFromSortedArray];
 		sortedArray.erase(sortedArray.begin() + randomValueFromSortedArray);
 	}
+}
+
+std::vector<int> GameState::getUnsortedArray()
+{
+	return unsortedArray;
 }

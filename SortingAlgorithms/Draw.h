@@ -8,7 +8,7 @@ using namespace sf;
 class Draw {
 public:
 	void init(RenderWindow& window, Vector2f screenSize);
-	void drawGameState(RenderWindow& window, GameState state);
+	void drawGameState(RenderWindow& window, GameState& state);
 private:
 	void drawArray(RenderWindow& window, std::vector<int> array);
 

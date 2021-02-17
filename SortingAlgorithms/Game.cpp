@@ -10,5 +10,6 @@ void Game::run()
 	while (window.isOpen()) {
 		update.update(window);
 		draw.drawGameState(window,gameState);
+		gameState.sortArray();
 	}
 }

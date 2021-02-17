@@ -8,12 +8,12 @@ void Draw::init(RenderWindow& window, Vector2f screenSize)
 	window.create(VideoMode(screenSize.x, screenSize.y), "Sorting Algorithms");
 }
 
-void Draw::drawGameState(RenderWindow& window, GameState state)
+void Draw::drawGameState(RenderWindow& window, GameState &state)
 {
 	Color backgroundColor = Color(64, 64, 64);
 
 	window.clear(backgroundColor);
-	drawArray(window, state.unsortedArray);
+	drawArray(window, state.getUnsortedArray());
 	window.display();
 }
 

@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Algorithms">
+      <UniqueIdentifier>{12518423-7cb6-4027-a760-45fdbdd61d45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Algorithms">
+      <UniqueIdentifier>{cb5dd2a9-446a-4209-8a38-7a6b6e925e6c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -31,10 +37,13 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Bubble.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Algorithms</Filter>
     </ClCompile>
     <ClCompile Include="SortingAlgorithm.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="Selection.cpp">
+      <Filter>Source Files\Algorithms</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -51,10 +60,13 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SortingAlgorithm.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Algorithms</Filter>
     </ClInclude>
     <ClInclude Include="Bubble.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="Selection.h">
+      <Filter>Header Files\Algorithms</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

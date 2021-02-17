@@ -150,6 +150,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Selection.cpp" />
     <ClCompile Include="SortingAlgorithm.cpp" />
     <ClCompile Include="Update.cpp" />
   </ItemGroup>
@@ -158,6 +159,7 @@
     <ClInclude Include="Draw.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="Selection.h" />
     <ClInclude Include="SortingAlgorithm.h" />
     <ClInclude Include="Update.h" />
   </ItemGroup>

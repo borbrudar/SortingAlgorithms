@@ -1,11 +1,5 @@
 #include "Bubble.h"
 
-Bubble::Bubble()
-{
-	firstIterator = 0;
-	secondIterator = 1;
-}
-
 void Bubble::sortArray(std::vector<int> &vec)
 {
 	if (vec[firstIterator] > vec[secondIterator])

@@ -4,8 +4,8 @@
 
 class Bubble : public SortingAlgorithm {
 public:
-	Bubble();
 	void sortArray(std::vector<int>& vec);
 private:
 	void updateIterators(int arraySize);
+	int firstIterator = 0, secondIterator = 1;
 };

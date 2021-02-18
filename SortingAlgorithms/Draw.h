@@ -1,18 +1,17 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "GameState.h"
 #include <vector>
-#include <random>
-#include <memory>
 
+class Game;
 using namespace sf;
 class Draw {
 public:
 	void init(RenderWindow& window, Vector2f screenSize);
-	void drawString(RenderWindow& window, Vector2f pos, std::string message);
-	void drawArray(RenderWindow& window, std::vector<int> &array, std::deque<int> tempColorVector);
+	void drawGameState(RenderWindow& window, GameState& state);
 private:
-	Color chooseLineColor(int array, std::deque<int> tempColorVector);
+	void drawArray(RenderWindow& window, GameState& state);
+	Color chooseLineColor(int array, GameState& state);
 
 	int SCR_WIDTH, SCR_HEIGHT;
-	Font font;
 };

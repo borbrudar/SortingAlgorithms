@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "Draw.h"
 #include "Update.h"
-#include "GameState.h"
 
 using namespace sf;
 class Game {
@@ -11,6 +11,7 @@ public:
 
 	const int SCR_WIDTH = 512, SCR_HEIGHT = SCR_WIDTH / 4 * 3;
 private:
+	Draw draw;
 	Update update;
 	RenderWindow window;
 	GameState gameState;

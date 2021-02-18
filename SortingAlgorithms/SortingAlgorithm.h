@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 #include <deque>
-#include <string>
 #include <SFML/Graphics.hpp>
 
 class SortingAlgorithm {
@@ -12,10 +11,8 @@ public:
 
 	std::deque<int> getColorArray();
 	int getMaxColorArraySize();
-	std::string getAlgorithmName();
 protected:
 	std::deque<int> colorArray;
 	int maxColorArraySize = 10;
 	int sleepForInMiliseconds = 30;
-	std::string algorithmName;
 };

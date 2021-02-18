@@ -6,39 +6,33 @@ void Draw::init(RenderWindow& window, Vector2f screenSize)
 	SCR_WIDTH = screenSize.x;
 	SCR_HEIGHT = screenSize.y;
 	window.create(VideoMode(screenSize.x, screenSize.y), "Sorting Algorithms");
-
-	font.loadFromFile("res/font/arial.ttf");
 }
 
-void Draw::drawString(RenderWindow &window, Vector2f pos, std::string message)
+void Draw::drawGameState(RenderWindow& window, GameState &state)
 {
-	Text text;
-	text.setFont(font);
-	text.setString(message);
-	text.setFillColor(Color::White);
-	text.setOutlineColor(Color::Black);
-	text.setOutlineThickness(2.f);
-	text.setPosition(pos);
-
-	window.draw(text);
+	Color backgroundColor = Color(64, 64, 64);
 	
+	window.clear(backgroundColor);
+	drawArray(window, state);
+	window.display();
 }
 
-
-void Draw::drawArray(RenderWindow& window, std::vector<int> &array, std::deque<int> tempColorVector)
+void Draw::drawArray(RenderWindow& window, GameState &state)
 {
+	std::vector<int> array = state.getUnsortedArray();
 	RectangleShape rect;
 
 	for (int i = 0; i < array.size();i++) {
-		rect.setFillColor(chooseLineColor(i,tempColorVector));
+		rect.setFillColor(chooseLineColor(i,state));
 		rect.setSize(Vector2f(SCR_WIDTH / array.size(), array[i] * SCR_HEIGHT / array.size()));
 		rect.setPosition(i * (SCR_WIDTH / array.size()), SCR_HEIGHT - (array[i] * SCR_HEIGHT / array.size()));
 		window.draw(rect);
 	}
 }
 
-Color Draw::chooseLineColor(int arrayValue, std::deque<int> tempColorVector)
+Color Draw::chooseLineColor(int arrayValue, GameState &state)
 {
+	std::deque<int> tempColorVector = state.getSortingAlgorithm()->getColorArray();
 	int place = -1;
 
 	for (int i = 0; i < tempColorVector.size(); i++) {

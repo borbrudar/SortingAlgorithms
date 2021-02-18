@@ -3,6 +3,9 @@
 
 class Selection : public SortingAlgorithm {
 public:
+	Selection() {
+		algorithmName = "Selection";
+	}
 	void sortArray(std::vector<int> &vec);
 private:
 	void parseThroughArray(std::vector<int>& vec);

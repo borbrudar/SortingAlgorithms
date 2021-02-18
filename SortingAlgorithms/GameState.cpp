@@ -1,9 +1,11 @@
 #include "GameState.h"
 
-GameState::GameState()
+void GameState::init(RenderWindow& window, Vector2f size)
 {
 	sortingAlgorithm = std::make_unique<Insertion>();
 	randomizeUnsortedArray();
+
+	draw1.init(window, size);
 }
 
 void GameState::sortArray()
@@ -30,6 +32,19 @@ void GameState::randomizeUnsortedArray()
 		unsortedArray[i] = sortedArray[randomValueFromSortedArray];
 		sortedArray.erase(sortedArray.begin() + randomValueFromSortedArray);
 	}
+}
+
+void GameState::drawGameState(RenderWindow& window)
+{
+	Color backgroundColor = Color(64, 64, 64);
+
+	window.clear(backgroundColor);
+	std::deque<int> temp = sortingAlgorithm->getColorArray();
+	draw1.drawArray(window, unsortedArray, temp);
+
+	std::string algName = "Using: " + sortingAlgorithm->getAlgorithmName() + " Sort";
+	draw1.drawString(window, Vector2f(20, 20), algName);
+	window.display();
 }
 
 std::vector<int> GameState::getUnsortedArray()

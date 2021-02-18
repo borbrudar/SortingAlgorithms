@@ -10,6 +10,11 @@ int SortingAlgorithm::getMaxColorArraySize()
 	return maxColorArraySize;
 }
 
+std::string SortingAlgorithm::getAlgorithmName()
+{
+	return algorithmName;
+}
+
 void SortingAlgorithm::sortingSlowDown()
 {
 	sf::Time time = sf::milliseconds(sleepForInMiliseconds);

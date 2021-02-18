@@ -7,7 +7,7 @@ void GameState::sortArray()
 
 void GameState::randomizeUnsortedArray()
 {
-	int arraySize = 256;
+	int arraySize = 64;
 
 	std::vector<int> sortedArray;
 	sortedArray.resize(arraySize);
@@ -29,4 +29,9 @@ void GameState::randomizeUnsortedArray()
 std::vector<int> GameState::getUnsortedArray()
 {
 	return unsortedArray;
+}
+
+std::unique_ptr<SortingAlgorithm>& GameState::getSortingAlgorithm()
+{
+	return sortingAlgorithm;
 }

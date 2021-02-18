@@ -2,9 +2,11 @@
 
 void Bubble::sortArray(std::vector<int> &vec)
 {
-	if (vec[firstIterator] > vec[secondIterator])
+	if (vec[firstIterator] > vec[secondIterator]) {
 		std::iter_swap(vec.begin() + firstIterator, vec.begin() + secondIterator);
 
+		updateColorArray(vec[firstIterator]);
+	}
 
 	updateIterators(vec.size());
 	

@@ -11,6 +11,8 @@ public:
 
 	const int SCR_WIDTH = 512, SCR_HEIGHT = SCR_WIDTH / 4 * 3;
 private:
+	void drawGame();
+
 	Draw draw;
 	Update update;
 	RenderWindow window;

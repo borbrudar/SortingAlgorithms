@@ -1,20 +1,10 @@
 #include "Draw.h"
 #include "Game.h"
 
-void Draw::init(RenderWindow& window, Vector2f screenSize)
+void Draw::init(Vector2f screenSize)
 {
 	SCR_WIDTH = screenSize.x;
 	SCR_HEIGHT = screenSize.y;
-	window.create(VideoMode(screenSize.x, screenSize.y), "Sorting Algorithms");
-}
-
-void Draw::drawGameState(RenderWindow& window, GameState &state)
-{
-	Color backgroundColor = Color(64, 64, 64);
-	
-	window.clear(backgroundColor);
-	drawArray(window, state);
-	window.display();
 }
 
 void Draw::drawArray(RenderWindow& window, GameState &state)

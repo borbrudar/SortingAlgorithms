@@ -21,6 +21,8 @@ void Game::drawGame()
 	window.clear(backgroundColor);
 
 	draw.drawArray(window, gameState);
+	std::string algName = "Using: " + gameState.getSortingAlgorithm()->getAlgorithmName() + " Sort";
+	draw.drawString(window, Vector2f(20, 10), algName);
 
 	window.display();
 }

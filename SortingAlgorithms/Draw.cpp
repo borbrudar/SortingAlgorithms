@@ -5,6 +5,23 @@ void Draw::init(Vector2f screenSize)
 {
 	SCR_WIDTH = screenSize.x;
 	SCR_HEIGHT = screenSize.y;
+
+	arial.loadFromFile("font/arial.ttf");
+}
+
+void Draw::drawString(RenderWindow& window, Vector2f pos, std::string message)
+{
+	Text text;
+	text.setFont(arial);
+	text.setString(message);
+	text.setCharacterSize(16);
+	text.setFillColor(Color::White);
+	text.setOutlineColor(Color::Black);
+	text.setOutlineThickness(1.5f);
+	text.setPosition(pos);
+
+	window.draw(text);
+
 }
 
 void Draw::drawArray(RenderWindow& window, GameState &state)

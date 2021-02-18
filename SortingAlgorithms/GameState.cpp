@@ -2,7 +2,7 @@
 
 GameState::GameState()
 {
-	sortingAlgorithm = std::make_unique<Insertion>();
+	sortingAlgorithm = std::make_unique<Bubble>();
 	randomizeUnsortedArray();
 }
 

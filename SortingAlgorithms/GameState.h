@@ -5,13 +5,11 @@
 #include "SortingAlgorithm.h"
 #include "Bubble.h"
 #include "Selection.h"
+#include "Insertion.h"
 
 class GameState {
 public:
-	GameState() {
-		sortingAlgorithm = std::make_unique<Bubble>();
-		randomizeUnsortedArray();
-	}
+	GameState();
 	void sortArray();
 	void randomizeUnsortedArray();
 	std::vector<int> getUnsortedArray();

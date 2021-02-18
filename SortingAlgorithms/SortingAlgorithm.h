@@ -14,5 +14,5 @@ public:
 protected:
 	std::deque<int> colorArray;
 	int maxColorArraySize = 10;
-	int sleepForInMiliseconds = 1;
+	int sleepForInMiliseconds = 30;
 };

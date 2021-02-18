@@ -149,6 +149,7 @@
     <ClCompile Include="Draw.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="Insertion.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Selection.cpp" />
     <ClCompile Include="SortingAlgorithm.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Draw.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="Insertion.h" />
     <ClInclude Include="Selection.h" />
     <ClInclude Include="SortingAlgorithm.h" />
     <ClInclude Include="Update.h" />

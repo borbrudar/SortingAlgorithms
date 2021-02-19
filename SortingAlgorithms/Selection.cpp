@@ -14,7 +14,8 @@ void Selection::parseThroughArray(std::vector<int>& vec)
 		currentMinimum = vec[iterator];
 		currentLowestIndex = iterator;
 	}
-	iterator++;
+		
+	if(isParsing) iterator++;
 }
 
 void Selection::updateIterator(std::vector<int>& vec)
@@ -26,5 +27,7 @@ void Selection::updateIterator(std::vector<int>& vec)
 		checkArrayFrom++;
 		iterator = checkArrayFrom;
 		currentMinimum = 1000000;
+
+		if (checkArrayFrom == (vec.size() - 1)) isParsing = false;
 	}
 }

@@ -15,4 +15,5 @@ private:
 	long currentLowestIndex = -1;
 	int iterator = 0;
 	int checkArrayFrom = 0;
+	bool isParsing = 1;
 };

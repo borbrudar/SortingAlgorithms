@@ -29,8 +29,8 @@ void Draw::drawArray(RenderWindow& window, GameState &state)
 
 	for (int i = 0; i < array.size();i++) {
 		rect.setFillColor(chooseLineColor(i,state));
-		rect.setSize(Vector2f(SCR_WIDTH / array.size(), array[i] * SCR_HEIGHT / array.size()));
-		rect.setPosition(i * (SCR_WIDTH / array.size()), SCR_HEIGHT - (array[i] * SCR_HEIGHT / array.size()));
+		rect.setSize(Vector2f(SCR_WIDTH / array.size(), array[i] * (SCR_HEIGHT * 0.75) / array.size()));
+		rect.setPosition(i * (SCR_WIDTH / array.size()), SCR_HEIGHT - (array[i] * (SCR_HEIGHT * 0.75) / array.size()));
 		window.draw(rect);
 	}
 }

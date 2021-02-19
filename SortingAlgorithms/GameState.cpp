@@ -18,7 +18,7 @@ void GameState::sortArray()
 
 void GameState::randomizeUnsortedArray()
 {
-	int arraySize = 64;
+	int arraySize = 80;
 
 	std::vector<int> sortedArray;
 	sortedArray.resize(arraySize);

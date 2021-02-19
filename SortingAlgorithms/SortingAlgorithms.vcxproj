@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bubble.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Cycle.cpp" />
     <ClCompile Include="Draw.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -154,10 +155,10 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Selection.cpp" />
     <ClCompile Include="SortingAlgorithm.cpp" />
-    <ClCompile Include="Update.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bubble.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Cycle.h" />
     <ClInclude Include="Draw.h" />
     <ClInclude Include="Game.h" />
@@ -165,7 +166,6 @@
     <ClInclude Include="Insertion.h" />
     <ClInclude Include="Selection.h" />
     <ClInclude Include="SortingAlgorithm.h" />
-    <ClInclude Include="Update.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

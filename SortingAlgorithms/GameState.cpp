@@ -2,6 +2,11 @@
 
 GameState::GameState()
 {
+	init();
+}
+
+void GameState::init()
+{
 	randomizeUnsortedArray();
 	sortingAlgorithm = std::make_unique<Cycle>();
 }

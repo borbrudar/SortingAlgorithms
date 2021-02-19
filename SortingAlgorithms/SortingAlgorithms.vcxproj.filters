@@ -30,9 +30,6 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Update.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -51,15 +48,15 @@
     <ClCompile Include="Cycle.cpp">
       <Filter>Source Files\Algorithms</Filter>
     </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Draw.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Update.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameState.h">
@@ -79,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="Cycle.h">
       <Filter>Header Files\Algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

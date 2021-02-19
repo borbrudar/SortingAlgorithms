@@ -11,11 +11,12 @@
 class GameState {
 public:
 	GameState();
+	void init();
 	void sortArray();
-	void randomizeUnsortedArray();
 	std::vector<int> getUnsortedArray();
 	std::unique_ptr<SortingAlgorithm>& getSortingAlgorithm();
 private:
+	void randomizeUnsortedArray();
 	std::vector<int> unsortedArray;
 	std::unique_ptr<SortingAlgorithm> sortingAlgorithm;
 };

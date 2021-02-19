@@ -13,5 +13,6 @@ private:
 	Color chooseLineColor(int array, GameState& state);
 	int SCR_WIDTH, SCR_HEIGHT;
 	Font arial;
+	Text text;
 };
 

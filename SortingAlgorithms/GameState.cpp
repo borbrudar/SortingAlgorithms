@@ -2,8 +2,8 @@
 
 GameState::GameState()
 {
-	sortingAlgorithm = std::make_unique<Selection>();
 	randomizeUnsortedArray();
+	sortingAlgorithm = std::make_unique<Cycle>();
 }
 
 void GameState::sortArray()

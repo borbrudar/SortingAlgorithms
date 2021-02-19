@@ -12,6 +12,7 @@ public:
 	std::deque<int> getColorArray();
 	int getMaxColorArraySize();
 	std::string getAlgorithmName();
+
 protected:
 	std::deque<int> colorArray;
 	int maxColorArraySize = 10;

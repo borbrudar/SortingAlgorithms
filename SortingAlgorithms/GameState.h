@@ -6,6 +6,7 @@
 #include "Bubble.h"
 #include "Selection.h"
 #include "Insertion.h"
+#include "Cycle.h"
 
 class GameState {
 public:

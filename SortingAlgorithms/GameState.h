@@ -7,6 +7,7 @@
 #include "Selection.h"
 #include "Insertion.h"
 #include "Cycle.h"
+#include "Merge.h"
 
 class GameState {
 public:

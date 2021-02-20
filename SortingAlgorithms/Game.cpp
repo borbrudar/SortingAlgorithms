@@ -5,7 +5,7 @@ Game::Game()
 	window.create(VideoMode(SCR_WIDTH, SCR_HEIGHT), "Sorting Algorithms");
 	draw.init(Vector2f(SCR_WIDTH, SCR_HEIGHT));
 
-	randomize.init(Vector2f(380, 10), Vector2f(90, 25), "Randomize");
+	randomize.init(Vector2f(530, 10), Vector2f(90, 25), "Randomize");
 }
 
 void Game::run()

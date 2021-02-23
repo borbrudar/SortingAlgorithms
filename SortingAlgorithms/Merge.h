@@ -8,11 +8,11 @@ public:
 	}
 	void sortArray(std::vector<int>& vec);
 private:
-	std::vector<int> splitArray(std::vector<int> vec);
-	std::vector<int> mergeSort(std::vector<int>& vec1, std::vector<int> &vec2);
+	std::vector<std::vector<int>> splitArray(std::vector<std::vector<int>> &vec);
+	std::vector<std::vector<int>> mergeSort(std::vector<std::vector<int>>& vec1, std::vector<std::vector<int>> &vec2);
 	void resetIterators();
-	void updateIterators(std::vector<int>& sortedVec, std::vector<int>& vec, int& itr);
-	void pushRemainingElements(std::vector<int> &sortedVec, std::vector<int>& vec, int& itr);
+	void updateIterators(std::vector<std::vector<int>>& sortedVec, std::vector<std::vector<int>>& vec, int& itr);
+	void pushRemainingElements(std::vector<std::vector<int>> &sortedVec, std::vector<std::vector<int>>& vec, int& itr);
 
 	int firstIterator = 0, secondIterator = 0;
 	bool isSorted = 0;

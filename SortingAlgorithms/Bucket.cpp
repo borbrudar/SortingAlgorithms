@@ -12,6 +12,51 @@ Bucket::~Bucket()
 	delete right;
 }
 
+void Bucket::sortBucket()
+{
+	if (left->isLeaf && right->isLeaf) 	mergeNodes();
+	else if (left->isLeaf) left->sortBucket();
+	else right->sortBucket();
+
+}
+
+void Bucket::mergeNodes()
+{
+	for (int firstIterator = 0, secondIterator = 0;
+		firstIterator < left->bucketArray.size() || secondIterator < right->bucketArray.size();) {
+
+		if (left->bucketArray[firstIterator] < right->bucketArray[secondIterator]) {
+
+			if(firstIterator > left->bucketArray.size())
+		}
+	}
+
+	while (true) {
+		if (vec1[firstIterator] < vec2[secondIterator]) {
+
+			if (firstIterator > (vec1.size() - 1)) {
+				pushRemainingElements(sortedVec, vec2, secondIterator);
+				resetIterators();
+				return sortedVec;
+			}
+		}
+		else {
+			updateIterators(sortedVec, vec2, secondIterator);
+
+			if (secondIterator > (vec2.size() - 1)) {
+				pushRemainingElements(sortedVec, vec1, firstIterator);
+				resetIterators();
+				return sortedVec;
+			}
+		}
+	}
+
+
+	delete left;
+	delete right;
+	isLeaf = true;
+}
+
 void Bucket::setupNewNodes()
 {
 	// for some reason it doesnt work in a single statement

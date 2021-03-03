@@ -1,5 +1,6 @@
 #pragma once
 #include "SortingAlgorithm.h"
+#include "Bucket.h"
 
 class Merge : public SortingAlgorithm {
 public:
@@ -22,5 +23,4 @@ private:
 	std::vector<int> leftSwap;
 	std::vector<int> rightSwap;
 	int swapItr = 0;
-
 };

@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bubble.cpp" />
+    <ClCompile Include="Bucket.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Cycle.cpp" />
     <ClCompile Include="Draw.cpp" />
@@ -159,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bubble.h" />
+    <ClInclude Include="Bucket.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Cycle.h" />
     <ClInclude Include="Draw.h" />

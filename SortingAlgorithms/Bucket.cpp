@@ -32,20 +32,25 @@ std::vector<int> Bucket::updateBucket()
 
 void Bucket::updateNodes()
 {
-	if (isLeaf) return;
+	if (isLeaf || isMerging) return;
 	left->updateNodes();
 	right->updateNodes();
 
 	bucketArray.clear();
+
+	
+
 	for (int i = 0; i < left->bucketArray.size(); i++) bucketArray.push_back(left->bucketArray[i]);
 	for (int i = 0; i < right->bucketArray.size(); i++) bucketArray.push_back(right->bucketArray[i]);
 }
 
 void Bucket::mergeNodes()
 {
-	bucketArray.clear();
-	for (int firstIterator = 0, secondIterator = 0;
-		firstIterator < left->bucketArray.size() || secondIterator < right->bucketArray.size();) {
+	isMerging = true;
+	bucketArray.erase(bucketArray.begin() + firstIterator + secondIterator, bucketArray.end());
+
+	for (;firstIterator < left->bucketArray.size() ||
+		secondIterator < right->bucketArray.size();) {
 
 		if (left->bucketArray[firstIterator] < right->bucketArray[secondIterator]) {
 			bucketArray.push_back(left->bucketArray[firstIterator]);
@@ -56,6 +61,11 @@ void Bucket::mergeNodes()
 					bucketArray.push_back(right->bucketArray[secondIterator]);
 				break;
 			}
+
+
+			for (int i = firstIterator; i < left->bucketArray.size(); i++) bucketArray.push_back(left->bucketArray[i]);
+			for (int i = secondIterator; i < right->bucketArray.size(); i++) bucketArray.push_back(right->bucketArray[i]);
+			return;
 		}
 		else {
 			bucketArray.push_back(right->bucketArray[secondIterator]);
@@ -66,9 +76,15 @@ void Bucket::mergeNodes()
 					bucketArray.push_back(left->bucketArray[firstIterator]);
 				break;
 			}
+
+
+			for (int i = firstIterator; i < left->bucketArray.size(); i++) bucketArray.push_back(left->bucketArray[i]);
+			for (int i = secondIterator; i < right->bucketArray.size(); i++) bucketArray.push_back(right->bucketArray[i]);
+			return;
 		}
 	}
 
+	isMerging = false;
 	isLeaf = true;
 }
 
@@ -96,9 +112,3 @@ void Bucket::setupNewNodes()
 	right = new Bucket(rightArr);
 }
 
-void Bucket::pushRemainingElements(bool isLeft, int& itr)
-{
-	if (isLeft);
-	else for (; itr < bucketArray.size(); itr++) bucketArray.push_back(right->bucketArray[itr]);
-	
-}

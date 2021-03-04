@@ -14,10 +14,10 @@ private:
 	void updateNodes();
 	void mergeNodes();
 	void setupNewNodes();
-	void pushRemainingElements(bool isLeft, int &itr);
 
 	std::vector<int> bucketArray;
 	Bucket* left = NULL;
 	Bucket* right = NULL;
-	bool isLeaf = 0;
+	bool isLeaf = 0, isMerging = 0;
+	int firstIterator = 0, secondIterator = 0;
 };

@@ -10,6 +10,8 @@ public:
 	void init(std::vector<int> array);
 	void sortBucket();
 	std::vector<int> updateBucket();
+
+	int color = -1;
 private:
 	void updateNodes();
 	void mergeNodes();

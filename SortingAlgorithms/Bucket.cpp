@@ -1,4 +1,5 @@
 #include "Bucket.h"
+#include <iostream>
 
 Bucket::Bucket(std::vector<int> array)
 {
@@ -32,13 +33,16 @@ std::vector<int> Bucket::updateBucket()
 
 void Bucket::updateNodes()
 {
+	if(!isMerging) color = -1;
 	if (isLeaf || isMerging) return;
+
+	if (left->color != -1) color = left->color;
+	else if (right->color != -1) color = left->bucketArray.size() + right->color;
+	
 	left->updateNodes();
 	right->updateNodes();
 
 	bucketArray.clear();
-
-	
 
 	for (int i = 0; i < left->bucketArray.size(); i++) bucketArray.push_back(left->bucketArray[i]);
 	for (int i = 0; i < right->bucketArray.size(); i++) bucketArray.push_back(right->bucketArray[i]);
@@ -46,6 +50,7 @@ void Bucket::updateNodes()
 
 void Bucket::mergeNodes()
 {
+	color = -1;
 	isMerging = true;
 	bucketArray.erase(bucketArray.begin() + firstIterator + secondIterator, bucketArray.end());
 
@@ -65,6 +70,7 @@ void Bucket::mergeNodes()
 
 			for (int i = firstIterator; i < left->bucketArray.size(); i++) bucketArray.push_back(left->bucketArray[i]);
 			for (int i = secondIterator; i < right->bucketArray.size(); i++) bucketArray.push_back(right->bucketArray[i]);
+			color = firstIterator + secondIterator - 1;
 			return;
 		}
 		else {
@@ -80,6 +86,7 @@ void Bucket::mergeNodes()
 
 			for (int i = firstIterator; i < left->bucketArray.size(); i++) bucketArray.push_back(left->bucketArray[i]);
 			for (int i = secondIterator; i < right->bucketArray.size(); i++) bucketArray.push_back(right->bucketArray[i]);
+			color = firstIterator + secondIterator - 1;
 			return;
 		}
 	}

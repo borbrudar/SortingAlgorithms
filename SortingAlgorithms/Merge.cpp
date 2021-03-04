@@ -6,9 +6,10 @@ void Merge::sortArray(std::vector<int>& vec)
 		bucket.init(vec);
 		isInit = true;
 	}
-	
+
 	bucket.sortBucket();
 	vec = bucket.updateBucket();
+	updateColorArray(bucket.color);
 
 	sortingSlowDown();
 }

@@ -1,5 +1,4 @@
 #include "QuickTree.h"
-#include <iostream>
 
 QuickTree::QuickTree(std::vector<int>& vec)
 {
@@ -14,7 +13,6 @@ void QuickTree::init(std::vector<int>& vec)
 void QuickTree::sortTree()
 {
 	if (!isSorting) color = -1;
-	if (color != -1 && treeVec.size() == 80) std::cout << color << std::endl;
 	if (treeVec.size() <= 1) {
 		isSorting = false;
 		return;

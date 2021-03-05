@@ -16,16 +16,24 @@ void QuickTree::sortTree()
 		isSorting = false;
 		return;
 	}
-	if (!isSorting && !areNodesInit) setupNodes();
 
+	//todo nodes are not recursively sorting or setting up nodes
 	if (isSorting) partition();
-	else if (left->isSorting) left->sortTree();
-	else if (right->isSorting) right->sortTree();
+	else if (left->isSorting || left->areNodesSorting) left->sortTree();
+	else if (right->isSorting || right->areNodesSorting) right->sortTree();
+
+
+	if (!isSorting && !areNodesInit) setupNodes();
+	
+
+	if (areNodesInit) {
+		if (left->areNodesSorting || right->areNodesSorting) areNodesSorting = true;
+		//if (!left->areNodesSorting && !right->areNodesSorting) areNodesSorting = false;
+	}
 }
 
 std::vector<int> QuickTree::updateTree()
 {
-
 	updateNodes();
 
 	return treeVec;
@@ -73,6 +81,7 @@ void QuickTree::setupNodes()
 	right = new QuickTree(rightArr);
 
 	areNodesInit = true;
+	areNodesSorting = true;
 	isLeaf = false;
 }
 

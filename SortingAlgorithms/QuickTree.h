@@ -18,7 +18,7 @@ private:
 	std::vector<int> treeVec;
 	QuickTree* left;
 	QuickTree* right;
-	bool isSorting = true, areNodesInit = false, isLeaf = true;
+	bool isSorting = true, areNodesInit = false, isLeaf = true, areNodesSorting = false;
 
 	int pivot, j = 0, i = -1;
 	int pivotValue;

@@ -4,7 +4,7 @@ void Quick::sortArray(std::vector<int>& vec)
 {
 	
 	if (!isInit) {
-		quick.init(temp);
+		quick.init(vec);
 		isInit = true;
 	}
 

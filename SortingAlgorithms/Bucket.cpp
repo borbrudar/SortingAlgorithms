@@ -1,13 +1,8 @@
 #include "Bucket.h"
-#include <iostream>
 
 Bucket::Bucket(std::vector<int> array)
 {
 	init(array);
-}
-
-Bucket::~Bucket()
-{
 }
 
 void Bucket::init(std::vector<int> array)
@@ -97,8 +92,6 @@ void Bucket::mergeNodes()
 
 void Bucket::setupNewNodes()
 {
-	// for some reason it doesnt work in a single statement
-	// so here will this temp variable stay
 	float vecSize = bucketArray.size();
 	float midpoint = std::ceilf(vecSize / 2.f);
 

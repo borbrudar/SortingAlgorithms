@@ -6,7 +6,6 @@ class Bucket {
 public:
 	Bucket() = default;
 	Bucket(std::vector<int> array);
-	~Bucket();
 	void init(std::vector<int> array);
 	void sortBucket();
 	std::vector<int> updateBucket();

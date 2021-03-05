@@ -155,6 +155,8 @@
     <ClCompile Include="Insertion.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Merge.cpp" />
+    <ClCompile Include="Quick.cpp" />
+    <ClCompile Include="QuickTree.cpp" />
     <ClCompile Include="Selection.cpp" />
     <ClCompile Include="SortingAlgorithm.cpp" />
   </ItemGroup>
@@ -168,6 +170,8 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Insertion.h" />
     <ClInclude Include="Merge.h" />
+    <ClInclude Include="Quick.h" />
+    <ClInclude Include="QuickTree.h" />
     <ClInclude Include="Selection.h" />
     <ClInclude Include="SortingAlgorithm.h" />
   </ItemGroup>

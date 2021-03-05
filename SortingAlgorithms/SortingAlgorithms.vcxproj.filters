@@ -55,6 +55,12 @@
       <Filter>Source Files\Algorithms</Filter>
     </ClCompile>
     <ClCompile Include="Bucket.cpp">
+      <Filter>Source Files\Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="Quick.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QuickTree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -90,6 +96,12 @@
       <Filter>Header Files\Algorithms</Filter>
     </ClInclude>
     <ClInclude Include="Bucket.h">
+      <Filter>Header Files\Algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="Quick.h">
+      <Filter>Header Files\Algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="QuickTree.h">
       <Filter>Header Files\Algorithms</Filter>
     </ClInclude>
   </ItemGroup>

@@ -10,6 +10,7 @@ public:
 
 	void sortTree();
 	std::vector<int> updateTree();
+	int color;
 private:
 	void partition();
 	void setupNodes();

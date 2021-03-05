@@ -28,7 +28,8 @@ void QuickTree::sortTree()
 
 	if (areNodesInit) {
 		if (left->areNodesSorting || right->areNodesSorting) areNodesSorting = true;
-		//if (!left->areNodesSorting && !right->areNodesSorting) areNodesSorting = false;
+		if (!left->areNodesSorting && !right->areNodesSorting 
+			&& !left->isSorting && !right->isSorting) areNodesSorting = false;
 	}
 }
 

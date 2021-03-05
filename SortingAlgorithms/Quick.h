@@ -11,5 +11,4 @@ public:
 	void sortArray(std::vector<int>& vec);
 	QuickTree quick;
 	bool isInit = false;
-	std::vector<int> temp = { 5,4,3,2,1 };
 };

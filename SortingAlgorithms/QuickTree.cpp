@@ -1,4 +1,5 @@
 #include "QuickTree.h"
+#include <iostream>
 
 QuickTree::QuickTree(std::vector<int>& vec)
 {
@@ -12,24 +13,25 @@ void QuickTree::init(std::vector<int>& vec)
 
 void QuickTree::sortTree()
 {
+	if (!isSorting) color = -1;
+	if (color != -1 && treeVec.size() == 80) std::cout << color << std::endl;
 	if (treeVec.size() <= 1) {
 		isSorting = false;
 		return;
 	}
 
-	//todo nodes are not recursively sorting or setting up nodes
 	if (isSorting) partition();
 	else if (left->isSorting || left->areNodesSorting) left->sortTree();
 	else if (right->isSorting || right->areNodesSorting) right->sortTree();
+	
 
 
 	if (!isSorting && !areNodesInit) setupNodes();
-	
-
 	if (areNodesInit) {
 		if (left->areNodesSorting || right->areNodesSorting) areNodesSorting = true;
-		if (!left->areNodesSorting && !right->areNodesSorting 
-			&& !left->isSorting && !right->isSorting) areNodesSorting = false;
+		if (!left->areNodesSorting && !right->areNodesSorting
+			&& !left->isSorting && !right->isSorting) 	areNodesSorting = false;
+
 	}
 }
 
@@ -45,6 +47,7 @@ void QuickTree::partition()
 	if (j >= (treeVec.size() - 1)) {
 		std::iter_swap(treeVec.begin() + 1 + i, treeVec.begin() + pivot);
 		pivot = i + 1;
+		color = pivot;
 		pivotValue = treeVec[pivot];
 		isSorting = false;
 		return;
@@ -55,6 +58,7 @@ void QuickTree::partition()
 	if (treeVec[j] <= treeVec[pivot]) {
 		i++;
 		std::iter_swap(treeVec.begin() + i,treeVec.begin() + j);
+		color = j;
 	}
 
 	j++;
@@ -92,6 +96,11 @@ void QuickTree::updateNodes()
 
 	left->updateNodes();
 	right->updateNodes();
+
+	if (left->color != -1) color = left->color;
+	else if (right->color != -1) color = left->treeVec.size() + right->color + 1;
+	else if (color == pivot) color = left->treeVec.size();
+	else color = -1;
 
 	treeVec.clear();
 

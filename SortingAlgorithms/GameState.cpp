@@ -8,7 +8,7 @@ GameState::GameState()
 void GameState::init()
 {
 	randomizeUnsortedArray();
-	sortingAlgorithm = std::make_unique<Merge>();
+	sortingAlgorithm = std::make_unique<Quick>();
 }
 
 void GameState::sortArray()

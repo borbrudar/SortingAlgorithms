@@ -8,6 +8,7 @@
 #include "Insertion.h"
 #include "Cycle.h"
 #include "Merge.h"
+#include "Quick.h"
 
 class GameState {
 public:

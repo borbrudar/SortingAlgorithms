@@ -1,14 +1,29 @@
 #include "GameState.h"
 
-GameState::GameState()
-{
-	init();
-}
-
-void GameState::init()
+void GameState::init(int algorithmNumber)
 {
 	randomizeUnsortedArray();
-	sortingAlgorithm = std::make_unique<Quick>();
+
+	switch (algorithmNumber) {
+	case 0:
+		sortingAlgorithm = std::make_unique<Bubble>();
+		break;
+	case 1:
+		sortingAlgorithm = std::make_unique<Selection>();
+		break;
+	case 2:
+		sortingAlgorithm = std::make_unique<Insertion>();
+		break;
+	case 3:
+		sortingAlgorithm = std::make_unique<Cycle>();
+		break;
+	case 4:
+		sortingAlgorithm = std::make_unique<Merge>();
+		break;
+	case 5:
+		sortingAlgorithm = std::make_unique<Quick>();
+		break;
+	}
 
 }
 

@@ -25,5 +25,6 @@ private:
 
 	Button randomize;
 	Dropdown algSelection;
+	int algorithmNumber = 0;
 };
 

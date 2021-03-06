@@ -12,8 +12,7 @@
 
 class GameState {
 public:
-	GameState();
-	void init();
+	void init(int algorithmNumber);
 	void sortArray();
 	std::vector<int> getUnsortedArray();
 	std::unique_ptr<SortingAlgorithm>& getSortingAlgorithm();

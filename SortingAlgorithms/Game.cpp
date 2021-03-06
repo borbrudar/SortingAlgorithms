@@ -6,6 +6,11 @@ Game::Game()
 	draw.init(Vector2f(SCR_WIDTH, SCR_HEIGHT));
 
 	randomize.init(Vector2f(530, 10), Vector2f(90, 25), "Randomize");
+
+
+	std::vector<std::string> names = { "Merge","Insertion","Quick","Bubble","Cycle","Selection",
+	"Algorithms v" };
+	algSelection.init(6, Vector2f(400, 10), Vector2f(100, 25), names);
 }
 
 void Game::run()
@@ -26,6 +31,7 @@ void Game::drawGame()
 	draw.drawString(window, Vector2f(20, 10), algName);
 
 	randomize.drawButton(window);
+	algSelection.drawDropdown(window);
 
 	window.display();
 }

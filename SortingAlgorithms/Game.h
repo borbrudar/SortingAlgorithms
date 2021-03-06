@@ -3,6 +3,7 @@
 #include "Draw.h"
 #include "GameState.h"
 #include "Button.h"
+#include "Dropdown.h"
 
 using namespace sf;
 class Game {
@@ -23,5 +24,6 @@ private:
 	GameState gameState;
 
 	Button randomize;
+	Dropdown algSelection;
 };
 

@@ -150,6 +150,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Cycle.cpp" />
     <ClCompile Include="Draw.cpp" />
+    <ClCompile Include="Dropdown.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="Insertion.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="Cycle.h" />
     <ClInclude Include="Draw.h" />
+    <ClInclude Include="Dropdown.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Insertion.h" />

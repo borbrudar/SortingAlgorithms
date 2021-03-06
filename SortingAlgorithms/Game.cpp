@@ -40,9 +40,11 @@ void Game::updateGame()
 {
 	while (window.pollEvent(event)) {
 		if (event.type == Event::Closed) window.close();
+
+		algSelection.updateDropdown(window, mouse, event);
 	}
 
-	if (randomize.isPressed(window, mouse)) gameState.init();
+	if (randomize.isPressed(window, mouse, event)) gameState.init();
 	gameState.sortArray();
 }
 

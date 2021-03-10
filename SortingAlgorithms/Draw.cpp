@@ -22,26 +22,24 @@ void Draw::drawString(RenderWindow& window, Vector2f pos, std::string message)
 	window.draw(text);
 }
 
-void Draw::drawArray(RenderWindow& window, GameState &state)
+void Draw::drawArray(RenderWindow& window, std::vector<int> array, std::deque<int> colorVector)
 {
-	std::vector<int> array = state.getUnsortedArray();
 	RectangleShape rect;
 
 	for (int i = 0; i < array.size();i++) {
-		rect.setFillColor(chooseLineColor(i,state));
+		rect.setFillColor(chooseLineColor(i,colorVector));
 		rect.setSize(Vector2f(SCR_WIDTH / array.size(), array[i] * (SCR_HEIGHT * 0.75) / array.size()));
 		rect.setPosition(i * (SCR_WIDTH / array.size()), SCR_HEIGHT - (array[i] * (SCR_HEIGHT * 0.75) / array.size()));
 		window.draw(rect);
 	}
 }
 
-Color Draw::chooseLineColor(int arrayValue, GameState &state)
+Color Draw::chooseLineColor(int arrayValue,std::deque<int> colorVector)
 {
-	std::deque<int> tempColorVector = state.getSortingAlgorithm()->getColorArray();
 	int place = -1;
 
-	for (int i = 0; i < tempColorVector.size(); i++) {
-		if (arrayValue == tempColorVector[i]) {
+	for (int i = 0; i < colorVector.size(); i++) {
+		if (arrayValue == colorVector[i]) {
 			place = i;
 			break;
 		}
@@ -49,8 +47,8 @@ Color Draw::chooseLineColor(int arrayValue, GameState &state)
 
 
 	if (place == -1) return Color::White;
-	else if (place == (tempColorVector.size() - 1)) return Color::Green;
-	//choose shades of red depending on place colorArray
+	else if (place == (colorVector.size() - 1)) return Color::Green;
+	//choose shades of red depending on place in colorArray
 	else {
 		float temp = 255 / (place + 1);
 		return  Color(255, temp, temp);

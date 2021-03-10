@@ -10,7 +10,7 @@ void Bubble::sortArray(std::vector<int> &vec)
 
 	updateIterators(vec.size());
 	
-	//sortingSlowDown();
+	sortingSlowDown();
 }
 
 void Bubble::updateIterators(int arraySize)

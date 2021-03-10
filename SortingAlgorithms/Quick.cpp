@@ -11,5 +11,5 @@ void Quick::sortArray(std::vector<int>& vec)
 	quick.sortTree();
 	vec = quick.updateTree();
 	updateColorArray(quick.color);
-	//sortingSlowDown();
+	sortingSlowDown();
 }

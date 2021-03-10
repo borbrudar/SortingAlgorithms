@@ -4,7 +4,7 @@ void Selection::sortArray(std::vector<int>& vec)
 {
 	parseThroughArray(vec);
 	updateIterator(vec);
-	//sortingSlowDown();
+	sortingSlowDown();
 }
 
 

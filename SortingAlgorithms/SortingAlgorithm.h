@@ -12,6 +12,8 @@ public:
 	std::deque<int> getColorArray();
 	int getMaxColorArraySize();
 	std::string getAlgorithmName();
+	void setSleepInMiliseconds(int miliseconds);
+	float getSleepInMiliseconds();
 
 protected:
 	std::deque<int> colorArray;

@@ -15,6 +15,16 @@ std::string SortingAlgorithm::getAlgorithmName()
 	return algorithmName;
 }
 
+float SortingAlgorithm::getSleepInMiliseconds()
+{
+	return sleepForInMiliseconds;
+}
+
+void SortingAlgorithm::setSleepInMiliseconds(int miliseconds)
+{
+	if (miliseconds >= 0) sleepForInMiliseconds = miliseconds;
+}
+
 void SortingAlgorithm::sortingSlowDown()
 {
 	sf::Time time = sf::milliseconds(sleepForInMiliseconds);

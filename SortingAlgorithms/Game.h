@@ -1,9 +1,17 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <random>
+#include <memory>
 #include "Draw.h"
-#include "GameState.h"
 #include "Button.h"
 #include "Dropdown.h"
+#include "SortingAlgorithm.h"
+#include "Bubble.h"
+#include "Selection.h"
+#include "Insertion.h"
+#include "Cycle.h"
+#include "Merge.h"
+#include "Quick.h"
 
 using namespace sf;
 class Game {
@@ -15,13 +23,18 @@ public:
 private:
 	void drawGame();
 	void updateGame();
+	void init();
+
+	void sortArray();
+	void randomizeUnsortedArray();
 
 	RenderWindow window;
 	Event event;
 	Mouse mouse;
 
 	Draw draw;
-	GameState gameState;
+	std::vector<int> unsortedArray;
+	std::unique_ptr<SortingAlgorithm> sortingAlgorithm;
 
 	Button randomize;
 	Dropdown algSelection;

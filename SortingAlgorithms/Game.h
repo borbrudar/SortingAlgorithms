@@ -39,5 +39,7 @@ private:
 	Button randomize;
 	Dropdown algSelection;
 	int algorithmNumber = 0;
+
+	int stepDelay = 0;
 };
 

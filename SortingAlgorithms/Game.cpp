@@ -50,10 +50,11 @@ void Game::updateGame()
 		if (event.type == Event::KeyPressed) {
 			float currentSleep = sortingAlgorithm->getSleepInMiliseconds();
 
-			if (event.key.code == Keyboard::Left)
-				sortingAlgorithm->setSleepInMiliseconds(currentSleep - 5);
-			if (event.key.code == Keyboard::Right)
-				sortingAlgorithm->setSleepInMiliseconds(currentSleep + 5);
+			if (event.key.code == Keyboard::Left) stepDelay -= 5;
+			if (event.key.code == Keyboard::Right) stepDelay += 5;
+
+			sortingAlgorithm->setSleepInMiliseconds(stepDelay);
+			stepDelay = sortingAlgorithm->getSleepInMiliseconds();
 		}
 
 		int newAlgorithmNumber = algSelection.updateDropdown(window, mouse, event);
@@ -92,6 +93,7 @@ void Game::init()
 		break;
 	}
 
+	sortingAlgorithm->setSleepInMiliseconds(stepDelay);
 }
 
 void Game::sortArray()

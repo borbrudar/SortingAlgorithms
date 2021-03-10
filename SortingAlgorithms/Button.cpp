@@ -28,13 +28,8 @@ void Button::drawButton(RenderWindow& window)
 
 bool Button::isPressed(RenderWindow& window,Mouse mouse, Event event)
 {
-    Vector2i mousePos = mouse.getPosition(window);
-    //check if mouse is pressing the button AABB collision
     if (event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Left &&
-        mousePos.x > buttonRect.getGlobalBounds().left &&
-        mousePos.x < (buttonRect.getGlobalBounds().left + buttonRect.getGlobalBounds().width) &&
-        mousePos.y > buttonRect.getGlobalBounds().top &&
-        mousePos.y < (buttonRect.getGlobalBounds().top + buttonRect.getGlobalBounds().height)) 
+        buttonRect.getGlobalBounds().contains(Vector2f(mouse.getPosition(window))))
         return true;
     return false;
 }

@@ -12,7 +12,6 @@ private:
 	void drawClosed(RenderWindow& window);
 	void drawOpen(RenderWindow& window);
 
-
 	bool isDropped = false;
 	std::vector<Button> buttons;
 	Button cover;

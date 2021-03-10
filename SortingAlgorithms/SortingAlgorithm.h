@@ -6,16 +6,19 @@
 class SortingAlgorithm {
 public:
 	virtual void sortArray(std::vector<int> &vec) = 0;
-	void sortingSlowDown();
-	void updateColorArray(int indexToAdd);
+
+	std::string getAlgorithmName();
 
 	std::deque<int> getColorArray();
 	int getMaxColorArraySize();
-	std::string getAlgorithmName();
+
 	void setSleepInMiliseconds(int miliseconds);
-	float getSleepInMiliseconds();
+	int getSleepInMiliseconds();
 
 protected:
+	void sortingSlowDown();
+	void updateColorArray(int indexToAdd);
+
 	std::deque<int> colorArray;
 	int maxColorArraySize = 10;
 	int sleepForInMiliseconds = 30;

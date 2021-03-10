@@ -111,7 +111,7 @@ void Game::drawStrings()
 	draw.drawString(window, Vector2f(20, 10), algName);
 
 	std::string sleep = "Step delay: " + std::to_string(
-		(int)sortingAlgorithm->getSleepInMiliseconds()) + " ms";
+		sortingAlgorithm->getSleepInMiliseconds()) + " ms";
 	draw.drawString(window, Vector2f(20, 30), sleep);
 }
 

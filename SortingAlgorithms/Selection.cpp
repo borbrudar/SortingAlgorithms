@@ -1,33 +1,33 @@
 #include "Selection.h"
 
-void Selection::sortArray(std::vector<int>& vec)
+void Selection::sortArray()
 {
-	parseThroughArray(vec);
-	updateIterator(vec);
+	parseThroughArray();
+	updateIterator();
 	sortingSlowDown();
 }
 
 
-void Selection::parseThroughArray(std::vector<int>& vec)
+void Selection::parseThroughArray()
 {
-	if (vec[iterator] < currentMinimum) {
-		currentMinimum = vec[iterator];
+	if (vector[iterator] < currentMinimum) {
+		currentMinimum = vector[iterator];
 		currentLowestIndex = iterator;
 	}
 		
 	if(isParsing) iterator++;
 }
 
-void Selection::updateIterator(std::vector<int>& vec)
+void Selection::updateIterator()
 {
-	if (iterator == vec.size()) {
-		updateColorArray(vec[currentLowestIndex]);
+	if (iterator == vector.size()) {
+		updateColorArray(vector[currentLowestIndex]);
 
-		std::iter_swap(vec.begin() + checkArrayFrom, vec.begin() + currentLowestIndex);
+		std::iter_swap(vector.begin() + checkArrayFrom, vector.begin() + currentLowestIndex);
 		checkArrayFrom++;
 		iterator = checkArrayFrom;
 		currentMinimum = 1000000;
 
-		if (checkArrayFrom == (vec.size() - 1)) isParsing = false;
+		if (checkArrayFrom == (vector.size() - 1)) isParsing = false;
 	}
 }

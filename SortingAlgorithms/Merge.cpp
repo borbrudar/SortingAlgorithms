@@ -1,14 +1,14 @@
 #include "Merge.h"
 
-void Merge::sortArray(std::vector<int>& vec)
+void Merge::sortArray()
 {
 	if (!isInit) {
-		bucket.init(vec);
+		bucket.init(vector);
 		isInit = true;
 	}
 
 	bucket.sortBucket();
-	vec = bucket.updateBucket();
+	vector = bucket.updateBucket();
 	updateColorArray(bucket.color);
 
 	sortingSlowDown();

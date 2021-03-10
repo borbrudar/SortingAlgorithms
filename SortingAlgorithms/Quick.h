@@ -8,7 +8,7 @@ public:
 		algorithmName = "Quick";
 	}
 
-	void sortArray(std::vector<int>& vec);
+	void sortArray();
 	QuickTree quick;
 	bool isInit = false;
 };

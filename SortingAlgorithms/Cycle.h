@@ -8,9 +8,9 @@ public:
 		algorithmName = "Cycle";
 	}
 
-	void sortArray(std::vector<int>& vec);
+	void sortArray();
 private:
-	void sortCycles(std::vector<int>& vec);
+	void sortCycles();
 	void chooseNextCycle(int number);
 	
 	std::vector<int> sortedValues;

@@ -1,14 +1,14 @@
 #include "Bubble.h"
 
-void Bubble::sortArray(std::vector<int> &vec)
+void Bubble::sortArray()
 {
-	if (vec[firstIterator] > vec[secondIterator]) {
-		std::iter_swap(vec.begin() + firstIterator, vec.begin() + secondIterator);
+	if (vector[firstIterator] > vector[secondIterator]) {
+		std::iter_swap(vector.begin() + firstIterator, vector.begin() + secondIterator);
 
-		updateColorArray(vec[firstIterator]);
+		updateColorArray(vector[firstIterator]);
 	}
 
-	updateIterators(vec.size());
+	updateIterators(vector.size());
 	
 	sortingSlowDown();
 }

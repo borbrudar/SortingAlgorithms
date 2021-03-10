@@ -6,10 +6,10 @@ public:
 	Selection() {
 		algorithmName = "Selection";
 	}
-	void sortArray(std::vector<int> &vec);
+	void sortArray();
 private:
-	void parseThroughArray(std::vector<int>& vec);
-	void updateIterator(std::vector<int>& vec);
+	void parseThroughArray();
+	void updateIterator();
 
 	long currentMinimum = 1000000;
 	long currentLowestIndex = -1;

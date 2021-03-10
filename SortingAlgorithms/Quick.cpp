@@ -1,15 +1,15 @@
 #include "Quick.h"
 #include <iostream>
-void Quick::sortArray(std::vector<int>& vec)
+void Quick::sortArray()
 {
 	
 	if (!isInit) {
-		quick.init(vec);
+		quick.init(vector);
 		isInit = true;
 	}
 
 	quick.sortTree();
-	vec = quick.updateTree();
+	vector = quick.updateTree();
 	updateColorArray(quick.color);
 	sortingSlowDown();
 }

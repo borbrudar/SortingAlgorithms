@@ -3,7 +3,6 @@
 Game::Game()
 {
 	window.create(VideoMode(SCR_WIDTH, SCR_HEIGHT), "Sorting Algorithms");
-	draw.init(Vector2f(SCR_WIDTH, SCR_HEIGHT));
 
 	randomize.init(Vector2f(530, 10), Vector2f(90, 25), "Randomize");
 	init();
@@ -27,7 +26,7 @@ void Game::drawGame()
 	Color backgroundColor = Color(64, 64, 64);
 	window.clear(backgroundColor);
 
-	draw.drawVector(window, unsortedArray, sortingAlgorithm->getColorArray());
+	sortingAlgorithm->drawVector(window);
 	drawStrings();
 	drawButtons();
 
@@ -44,13 +43,11 @@ void Game::updateGame()
 	}
 
 	if (randomize.isPressed(window, mouse, event)) init();
-	sortArray();
+	sortingAlgorithm->sortArray();
 }
 
 void Game::init()
 {
-	randomizeUnsortedArray();
-
 	switch (algorithmNumber) {
 	case 0:
 		sortingAlgorithm = std::make_unique<Bubble>();
@@ -72,32 +69,11 @@ void Game::init()
 		break;
 	}
 
-	sortingAlgorithm->setSleepInMiliseconds(stepDelay);
+	sortingAlgorithm->setSleepInMiliseconds(stepDelay); 
+	sortingAlgorithm->randomizeUnsortedVector();
+	sortingAlgorithm->init(Vector2f(SCR_WIDTH, SCR_HEIGHT));
 }
 
-void Game::sortArray()
-{
-	sortingAlgorithm->sortArray(unsortedArray);
-}
-
-void Game::randomizeUnsortedArray()
-{
-	std::vector<int> sortedArray;
-	sortedArray.resize(arraySize);
-	unsortedArray.resize(arraySize);
-
-	std::random_device rd;
-	std::default_random_engine engine(rd());
-
-	for (int i = 0; i < sortedArray.size(); i++) sortedArray[i] = i;
-	for (int i = 0; i < unsortedArray.size(); i++) {
-		std::uniform_int_distribution<int> dist(0, sortedArray.size() - 1);
-		int randomValueFromSortedArray = dist(engine);
-
-		unsortedArray[i] = sortedArray[randomValueFromSortedArray];
-		sortedArray.erase(sortedArray.begin() + randomValueFromSortedArray);
-	}
-}
 
 void Game::drawButtons()
 {

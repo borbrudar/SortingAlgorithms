@@ -1,20 +1,20 @@
 #include "Insertion.h"
 
-void Insertion::sortArray(std::vector<int>& vec)
+void Insertion::sortArray()
 {
 
 	for (int i = 0; i < iterator; i++) {
-		if (vec[iterator] < vec[i]) {
-			int temp = vec[iterator];
-			vec.erase(vec.begin() + iterator);
-			vec.insert(vec.begin() + i,temp);
+		if (vector[iterator] < vector[i]) {
+			int temp = vector[iterator];
+			vector.erase(vector.begin() + iterator);
+			vector.insert(vector.begin() + i,temp);
 			
 
-			updateColorArray(vec[i]);
+			updateColorArray(vector[i]);
 		}
 	}
 
-	if(iterator < (vec.size() - 1)) iterator++;
+	if(iterator < (vector.size() - 1)) iterator++;
 
 	sortingSlowDown();
 }

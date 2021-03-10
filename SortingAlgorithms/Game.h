@@ -2,7 +2,6 @@
 #include <SFML/Graphics.hpp>
 #include <random>
 #include <memory>
-#include "Draw.h"
 #include "Button.h"
 #include "Dropdown.h"
 #include "SortingAlgorithm.h"
@@ -26,9 +25,6 @@ private:
 	void updateGame();
 	void init();
 
-	void sortArray();
-	void randomizeUnsortedArray();
-
 	void drawButtons();
 	void drawStrings();
 
@@ -40,8 +36,6 @@ private:
 	Mouse mouse;
 
 	StringU string;
-	Draw draw;
-	std::vector<int> unsortedArray;
 	std::unique_ptr<SortingAlgorithm> sortingAlgorithm;
 
 	Button randomize;

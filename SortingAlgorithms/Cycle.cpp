@@ -1,28 +1,28 @@
 #include "Cycle.h"
 
-void Cycle::sortArray(std::vector<int>& vec)
+void Cycle::sortArray()
 {
-	if (isParsing) sortCycles(vec);
+	if (isParsing) sortCycles();
 	sortingSlowDown();
 }
 
-void Cycle::sortCycles(std::vector<int>& vec)
+void Cycle::sortCycles()
 {
-	for (int i = 0; i < vec.size(); i++) {
-		if (vec[i] == nextValue) {
-			if (nextValue == i) chooseNextCycle(vec.size());
+	for (int i = 0; i < vector.size(); i++) {
+		if (vector[i] == nextValue) {
+			if (nextValue == i) chooseNextCycle(vector.size());
 
 			sortedValues.push_back(nextValue);
-			std::iter_swap(vec.begin() + nextValue, vec.begin() + i);
-			nextValue = vec[i];
-			updateColorArray(vec[i]);
+			std::iter_swap(vector.begin() + nextValue, vector.begin() + i);
+			nextValue = vector[i];
+			updateColorArray(vector[i]);
 
 			break;
 		}
 	}
 }
 
-void Cycle::chooseNextCycle(int vecSize)
+void Cycle::chooseNextCycle(int vectorSize)
 {
 	int nextCycleBegging = 0;
 
@@ -34,7 +34,7 @@ void Cycle::chooseNextCycle(int vecSize)
 		}
 	}
 
-	if (nextCycleBegging == vecSize) isParsing = false;
+	if (nextCycleBegging == vectorSize) isParsing = false;
 	else nextValue = nextCycleBegging;
 
 }

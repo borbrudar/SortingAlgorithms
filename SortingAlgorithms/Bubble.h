@@ -7,7 +7,7 @@ public:
 	Bubble() {
 		algorithmName = "Bubble";
 	}
-	void sortArray(std::vector<int>& vec);
+	void sortArray();
 private:
 	void updateIterators(int arraySize);
 	int firstIterator = 0, secondIterator = 1;

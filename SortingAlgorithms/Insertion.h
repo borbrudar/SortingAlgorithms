@@ -6,7 +6,7 @@ public:
 	Insertion() {
 		algorithmName = "Insertion";
 	}
-	void sortArray(std::vector<int>& vec);
+	void sortArray();
 
 	int iterator = 1;
 };

@@ -7,7 +7,7 @@ public:
 	Merge() {
 		algorithmName = "Merge";
 	}
-	void sortArray(std::vector<int>& vec);
+	void sortArray();
 private:
 	Bucket bucket;
 	bool isInit = false;

@@ -159,6 +159,7 @@
     <ClCompile Include="QuickTree.cpp" />
     <ClCompile Include="Selection.cpp" />
     <ClCompile Include="SortingAlgorithm.cpp" />
+    <ClCompile Include="StringU.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bubble.h" />
@@ -174,6 +175,7 @@
     <ClInclude Include="QuickTree.h" />
     <ClInclude Include="Selection.h" />
     <ClInclude Include="SortingAlgorithm.h" />
+    <ClInclude Include="StringU.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

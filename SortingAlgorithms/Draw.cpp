@@ -4,22 +4,8 @@ void Draw::init(Vector2f screenSize)
 {
 	SCR_WIDTH = screenSize.x;
 	SCR_HEIGHT = screenSize.y;
-
-	arial.loadFromFile("font/arial.ttf");
-
-	text.setFont(arial);
-	text.setCharacterSize(16);
-	text.setFillColor(Color::White);
-	text.setOutlineColor(Color::Black);
-	text.setOutlineThickness(1.5f);
 }
 
-void Draw::drawString(RenderWindow& window, Vector2f pos, std::string message)
-{
-	text.setPosition(pos);
-	text.setString(message);
-	window.draw(text);
-}
 
 void Draw::drawVector(RenderWindow& window, std::vector<int> vector, std::deque<int> colorVector)
 {

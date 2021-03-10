@@ -12,6 +12,7 @@
 #include "Cycle.h"
 #include "Merge.h"
 #include "Quick.h"
+#include "StringU.h"
 
 using namespace sf;
 class Game {
@@ -38,6 +39,7 @@ private:
 	Event event;
 	Mouse mouse;
 
+	StringU string;
 	Draw draw;
 	std::vector<int> unsortedArray;
 	std::unique_ptr<SortingAlgorithm> sortingAlgorithm;

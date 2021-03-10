@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
+#include "StringU.h"
 
 using namespace sf;
 
@@ -11,7 +11,6 @@ public:
 	bool isPressed(RenderWindow &window, Mouse mouse, Event event);
 private:
 	RectangleShape buttonRect;
-	Font arial;
-	Text buttonText;
+	StringU buttonText;
 };
 

@@ -108,11 +108,11 @@ void Game::drawButtons()
 void Game::drawStrings()
 {
 	std::string algName = "Using: " + sortingAlgorithm->getAlgorithmName() + " Sort";
-	draw.drawString(window, Vector2f(20, 10), algName);
+	string.drawString(window, Vector2f(20, 10), algName);
 
 	std::string sleep = "Step delay: " + std::to_string(
 		sortingAlgorithm->getSleepInMiliseconds()) + " ms";
-	draw.drawString(window, Vector2f(20, 30), sleep);
+	string.drawString(window, Vector2f(20, 30), sleep);
 }
 
 void Game::updateStepDelay()

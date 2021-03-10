@@ -28,16 +28,8 @@ void Game::drawGame()
 	window.clear(backgroundColor);
 
 	draw.drawVector(window, unsortedArray, sortingAlgorithm->getColorArray());
-	std::string algName = "Using: " + sortingAlgorithm->getAlgorithmName() + " Sort";
-	draw.drawString(window, Vector2f(20, 10), algName);
-
-	std::string sleep = "Step delay: " + std::to_string(
-		(int)sortingAlgorithm->getSleepInMiliseconds()) + " ms";
-	draw.drawString(window, Vector2f(20, 30), sleep);
-	
-
-	randomize.drawButton(window);
-	algSelection.drawDropdown(window);
+	drawStrings();
+	drawButtons();
 
 	window.display();
 }
@@ -46,22 +38,9 @@ void Game::updateGame()
 {
 	while (window.pollEvent(event)) {
 		if (event.type == Event::Closed) window.close();
+		if (event.type == Event::KeyPressed) updateStepDelay();
 
-		if (event.type == Event::KeyPressed) {
-			float currentSleep = sortingAlgorithm->getSleepInMiliseconds();
-
-			if (event.key.code == Keyboard::Left) stepDelay -= 5;
-			if (event.key.code == Keyboard::Right) stepDelay += 5;
-
-			sortingAlgorithm->setSleepInMiliseconds(stepDelay);
-			stepDelay = sortingAlgorithm->getSleepInMiliseconds();
-		}
-
-		int newAlgorithmNumber = algSelection.updateDropdown(window, mouse, event);
-		if (newAlgorithmNumber != -1) {
-			algorithmNumber = newAlgorithmNumber;
-			init();
-		}
+		updateAlgorithmSelection();
 	}
 
 	if (randomize.isPressed(window, mouse, event)) init();
@@ -120,5 +99,38 @@ void Game::randomizeUnsortedArray()
 	}
 }
 
+void Game::drawButtons()
+{
+	randomize.drawButton(window);
+	algSelection.drawDropdown(window);
+}
 
+void Game::drawStrings()
+{
+	std::string algName = "Using: " + sortingAlgorithm->getAlgorithmName() + " Sort";
+	draw.drawString(window, Vector2f(20, 10), algName);
 
+	std::string sleep = "Step delay: " + std::to_string(
+		(int)sortingAlgorithm->getSleepInMiliseconds()) + " ms";
+	draw.drawString(window, Vector2f(20, 30), sleep);
+}
+
+void Game::updateStepDelay()
+{
+	float currentSleep = sortingAlgorithm->getSleepInMiliseconds();
+
+	if (event.key.code == Keyboard::Left) stepDelay -= 5;
+	if (event.key.code == Keyboard::Right) stepDelay += 5;
+
+	sortingAlgorithm->setSleepInMiliseconds(stepDelay);
+	stepDelay = sortingAlgorithm->getSleepInMiliseconds();
+}
+
+void Game::updateAlgorithmSelection()
+{
+	int newAlgorithmNumber = algSelection.updateDropdown(window, mouse, event);
+	if (newAlgorithmNumber != -1) {
+		algorithmNumber = newAlgorithmNumber;
+		init();
+	}
+}

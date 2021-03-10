@@ -28,6 +28,12 @@ private:
 	void sortArray();
 	void randomizeUnsortedArray();
 
+	void drawButtons();
+	void drawStrings();
+
+	void updateStepDelay();
+	void updateAlgorithmSelection();
+
 	RenderWindow window;
 	Event event;
 	Mouse mouse;

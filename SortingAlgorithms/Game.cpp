@@ -27,7 +27,7 @@ void Game::drawGame()
 	Color backgroundColor = Color(64, 64, 64);
 	window.clear(backgroundColor);
 
-	draw.drawArray(window, unsortedArray, sortingAlgorithm->getColorArray());
+	draw.drawVector(window, unsortedArray, sortingAlgorithm->getColorArray());
 	std::string algName = "Using: " + sortingAlgorithm->getAlgorithmName() + " Sort";
 	draw.drawString(window, Vector2f(20, 10), algName);
 
@@ -103,8 +103,6 @@ void Game::sortArray()
 
 void Game::randomizeUnsortedArray()
 {
-	int arraySize = 80;
-
 	std::vector<int> sortedArray;
 	sortedArray.resize(arraySize);
 	unsortedArray.resize(arraySize);

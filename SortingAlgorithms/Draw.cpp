@@ -1,5 +1,4 @@
 #include "Draw.h"
-#include "Game.h"
 
 void Draw::init(Vector2f screenSize)
 {
@@ -22,14 +21,16 @@ void Draw::drawString(RenderWindow& window, Vector2f pos, std::string message)
 	window.draw(text);
 }
 
-void Draw::drawArray(RenderWindow& window, std::vector<int> array, std::deque<int> colorVector)
+void Draw::drawVector(RenderWindow& window, std::vector<int> vector, std::deque<int> colorVector)
 {
 	RectangleShape rect;
 
-	for (int i = 0; i < array.size();i++) {
+	for (int i = 0; i < vector.size();i++) {
 		rect.setFillColor(chooseLineColor(i,colorVector));
-		rect.setSize(Vector2f(SCR_WIDTH / array.size(), array[i] * (SCR_HEIGHT * 0.75) / array.size()));
-		rect.setPosition(i * (SCR_WIDTH / array.size()), SCR_HEIGHT - (array[i] * (SCR_HEIGHT * 0.75) / array.size()));
+		Vector2f size = Vector2f((float)SCR_WIDTH / vector.size(), vector[i] * (SCR_HEIGHT * 0.75) / vector.size());
+		
+		rect.setSize(size);
+		rect.setPosition(i * size.x, SCR_HEIGHT - size.y);
 		window.draw(rect);
 	}
 }

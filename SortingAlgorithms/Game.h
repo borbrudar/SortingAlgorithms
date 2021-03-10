@@ -41,5 +41,6 @@ private:
 	int algorithmNumber = 0;
 
 	int stepDelay = 0;
+	int arraySize = 80;
 };
 

@@ -7,13 +7,13 @@ QuickTree::QuickTree(std::vector<int>& vec)
 
 void QuickTree::init(std::vector<int>& vec)
 {
-	treeVec = vec;
+	dataVector = vec;
 }
 
 void QuickTree::sortTree()
 {
 	if (!isSorting) color = -1;
-	if (treeVec.size() <= 1) {
+	if (dataVector.size() <= 1) {
 		isSorting = false;
 		return;
 	}
@@ -37,25 +37,25 @@ std::vector<int> QuickTree::updateTree()
 {
 	updateNodes();
 
-	return treeVec;
+	return dataVector;
 }
 
 void QuickTree::partition()
 {
-	if (j >= (treeVec.size() - 1)) {
-		std::iter_swap(treeVec.begin() + 1 + i, treeVec.begin() + pivot);
+	if (j >= (dataVector.size() - 1)) {
+		std::iter_swap(dataVector.begin() + 1 + i, dataVector.begin() + pivot);
 		pivot = i + 1;
 		color = pivot;
-		pivotValue = treeVec[pivot];
+		pivotValue = dataVector[pivot];
 		isSorting = false;
 		return;
 	}
 
-	pivot = treeVec.size() - 1;
+	pivot = dataVector.size() - 1;
 
-	if (treeVec[j] <= treeVec[pivot]) {
+	if (dataVector[j] <= dataVector[pivot]) {
 		i++;
-		std::iter_swap(treeVec.begin() + i,treeVec.begin() + j);
+		std::iter_swap(dataVector.begin() + i,dataVector.begin() + j);
 		color = j;
 	}
 
@@ -64,7 +64,7 @@ void QuickTree::partition()
 
 void QuickTree::setupNodes()
 {
-	float vecSize = treeVec.size();
+	float vecSize = dataVector.size();
 	float midpoint = pivot;
 
 	if (vecSize == 1) {
@@ -74,11 +74,11 @@ void QuickTree::setupNodes()
 
 	std::vector<int> leftArr;
 	leftArr.resize(midpoint);
-	for (int i = 0; i < leftArr.size(); i++) leftArr[i] = treeVec[i];
+	for (int i = 0; i < leftArr.size(); i++) leftArr[i] = dataVector[i];
 
 	std::vector<int> rightArr;
-	rightArr.resize(treeVec.size() - midpoint - 1);
-	for (int i = midpoint + 1, right = 0; i < treeVec.size(); i++, right++) rightArr[right] = treeVec[i];
+	rightArr.resize(dataVector.size() - midpoint - 1);
+	for (int i = midpoint + 1, right = 0; i < dataVector.size(); i++, right++) rightArr[right] = dataVector[i];
 
 	path[0] = new QuickTree(leftArr);
 	path[1] = new QuickTree(rightArr);
@@ -96,13 +96,13 @@ void QuickTree::updateNodes()
 	path[1]->updateNodes();
 
 	if (path[0]->color != -1) color = path[0]->color;
-	else if (path[1]->color != -1) color = path[0]->treeVec.size() + path[1]->color + 1;
-	else if (color == pivot) color = path[0]->treeVec.size();
+	else if (path[1]->color != -1) color = path[0]->dataVector.size() + path[1]->color + 1;
+	else if (color == pivot) color = path[0]->dataVector.size();
 	else color = -1;
 
-	treeVec.clear();
+	dataVector.clear();
 
-	for (int i = 0; i < path[0]->treeVec.size(); i++) treeVec.push_back(path[0]->treeVec[i]);
-	treeVec.push_back(pivotValue);
-	for (int i = 0; i < path[1]->treeVec.size(); i++) treeVec.push_back(path[1]->treeVec[i]);
+	for (int i = 0; i < path[0]->dataVector.size(); i++) dataVector.push_back(path[0]->dataVector[i]);
+	dataVector.push_back(pivotValue);
+	for (int i = 0; i < path[1]->dataVector.size(); i++) dataVector.push_back(path[1]->dataVector[i]);
 }

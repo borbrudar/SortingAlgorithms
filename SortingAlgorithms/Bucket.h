@@ -15,7 +15,6 @@ private:
 	void mergeNodes();
 	void setupNewNodes();
 
-	std::vector<int> bucketArray;
 	Bucket* path[2];
 	bool isLeaf = 0, isMerging = 0;
 	int mainIterator[2] = { 0,0 };

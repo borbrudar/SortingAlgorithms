@@ -16,7 +16,6 @@ private:
 	void setupNodes();
 	void updateNodes();
 
-	std::vector<int> treeVec;
 	QuickTree* path[2];
 	bool isSorting = true, areNodesInit = false, isLeaf = true, areNodesSorting = false;
 

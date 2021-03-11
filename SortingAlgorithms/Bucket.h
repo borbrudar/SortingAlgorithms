@@ -1,12 +1,13 @@
 #pragma once
 #include <vector>
 #include <cmath>
+#include "BinaryTree.h"
 
-class Bucket {
+class Bucket : BinaryTree{
 public:
 	Bucket() = default;
-	Bucket(std::vector<int> array);
-	void init(std::vector<int> array);
+	Bucket(std::vector<int>& vec);
+	void init(std::vector<int> &vec);
 	void sortBucket();
 	std::vector<int> updateBucket();
 

@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="Bubble.cpp" />
     <ClCompile Include="Bucket.cpp" />
     <ClCompile Include="Button.cpp" />
@@ -161,6 +162,7 @@
     <ClCompile Include="StringU.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BinaryTree.h" />
     <ClInclude Include="Bubble.h" />
     <ClInclude Include="Bucket.h" />
     <ClInclude Include="Button.h" />

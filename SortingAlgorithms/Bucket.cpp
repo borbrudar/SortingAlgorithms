@@ -1,13 +1,13 @@
 #include "Bucket.h"
 
-Bucket::Bucket(std::vector<int> array)
+Bucket::Bucket(std::vector<int>& vec)
 {
-	init(array);
+	init(vec);
 }
 
-void Bucket::init(std::vector<int> array)
+void Bucket::init(std::vector<int> &vec)
 {
-	bucketArray = array;
+	bucketArray = vec;
 	setupNewNodes();
 }
 

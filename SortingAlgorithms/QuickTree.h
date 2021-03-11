@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <cmath>
+#include "BinaryTree.h"
 
 class QuickTree {
 public:

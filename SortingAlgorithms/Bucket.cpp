@@ -13,9 +13,9 @@ void Bucket::init(std::vector<int> &vec)
 
 void Bucket::sortBucket()
 {
-	if (path[0]->isLeaf && path[1]->isLeaf) 	mergeNodes();
-	else if (!path[0]->isLeaf) path[0]->sortBucket();
-	else path[1]->sortBucket();
+	if (left->isLeaf && right->isLeaf) 	mergeNodes();
+	else if (!left->isLeaf) left->sortBucket();
+	else right->sortBucket();
 
 }
 
@@ -31,51 +31,59 @@ void Bucket::updateNodes()
 	if(!isMerging) color = -1;
 	if (isLeaf || isMerging) return;
 
-	if (path[0]->color != -1) color = path[0]->color;
-	else if (path[1]->color != -1) color = path[0]->bucketArray.size() + path[1]->color;
+	if (left->color != -1) color = left->color;
+	else if (right->color != -1) color = left->bucketArray.size() + right->color;
 	
-	path[0]->updateNodes();
-	path[1]->updateNodes();
+	left->updateNodes();
+	right->updateNodes();
 
 	bucketArray.clear();
 
-	for (int i = 0; i < path[0]->bucketArray.size(); i++) bucketArray.push_back(path[0]->bucketArray[i]);
-	for (int i = 0; i < path[1]->bucketArray.size(); i++) bucketArray.push_back(path[1]->bucketArray[i]);
+	for (int i = 0; i < left->bucketArray.size(); i++) bucketArray.push_back(left->bucketArray[i]);
+	for (int i = 0; i < right->bucketArray.size(); i++) bucketArray.push_back(right->bucketArray[i]);
 }
 
 void Bucket::mergeNodes()
 {
 	color = -1;
 	isMerging = true;
-	bucketArray.erase(bucketArray.begin() + mainIterator[0] + mainIterator[1], bucketArray.end());
+	bucketArray.erase(bucketArray.begin() + firstIterator + secondIterator, bucketArray.end());
 
-	for (;mainIterator[0] < path[0]->bucketArray.size() ||
-		mainIterator[1] < path[1]->bucketArray.size();) {
+	for (;firstIterator < left->bucketArray.size() ||
+		secondIterator < right->bucketArray.size();) {
 
-		int first, second;
+		if (left->bucketArray[firstIterator] < right->bucketArray[secondIterator]) {
+			bucketArray.push_back(left->bucketArray[firstIterator]);
+			firstIterator++;
 
-		if (path[0]->bucketArray[mainIterator[0]] < path[1]->bucketArray[mainIterator[1]]) {
-			first = 0; second = 1;
+			if (firstIterator >= left->bucketArray.size()) {
+				for (; secondIterator < right->bucketArray.size(); secondIterator++) 
+					bucketArray.push_back(right->bucketArray[secondIterator]);
+				break;
+			}
+
+
+			for (int i = firstIterator; i < left->bucketArray.size(); i++) bucketArray.push_back(left->bucketArray[i]);
+			for (int i = secondIterator; i < right->bucketArray.size(); i++) bucketArray.push_back(right->bucketArray[i]);
+			color = firstIterator + secondIterator - 1;
+			return;
 		}
 		else {
-			first = 1; second = 0;
+			bucketArray.push_back(right->bucketArray[secondIterator]);
+			secondIterator++;
+
+			if (secondIterator >= right->bucketArray.size()) {
+				for (; firstIterator < left->bucketArray.size(); firstIterator++)
+					bucketArray.push_back(left->bucketArray[firstIterator]);
+				break;
+			}
+
+
+			for (int i = firstIterator; i < left->bucketArray.size(); i++) bucketArray.push_back(left->bucketArray[i]);
+			for (int i = secondIterator; i < right->bucketArray.size(); i++) bucketArray.push_back(right->bucketArray[i]);
+			color = firstIterator + secondIterator - 1;
+			return;
 		}
-
-		bucketArray.push_back(path[first]->bucketArray[mainIterator[first]]);
-		mainIterator[first];
-
-		if (mainIterator[first] >= path[first]->bucketArray.size()) {
-			for (; mainIterator[second] < path[second]->bucketArray.size(); mainIterator[second]++) 
-				bucketArray.push_back(path[second]->bucketArray[mainIterator[second]]);
-			break;
-		}
-
-
-		for (int i = mainIterator[0]; i < path[0]->bucketArray.size(); i++) bucketArray.push_back(path[0]->bucketArray[i]);
-		for (int i = mainIterator[1]; i < path[1]->bucketArray.size(); i++) bucketArray.push_back(path[1]->bucketArray[i]);
-		color = mainIterator[0] + mainIterator[1] - 1;
-		return;
-		
 	}
 
 	isMerging = false;
@@ -100,7 +108,7 @@ void Bucket::setupNewNodes()
 	rightArr.resize(bucketArray.size() - midpoint);
 	for (int i = midpoint, right = 0; i < bucketArray.size(); i++, right++) rightArr[right] = bucketArray[i];
 
-	path[0] = new Bucket(leftArr);
-	path[1] = new Bucket(rightArr);
+	left = new Bucket(leftArr);
+	right = new Bucket(rightArr);
 }
 

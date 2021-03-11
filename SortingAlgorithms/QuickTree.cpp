@@ -19,16 +19,16 @@ void QuickTree::sortTree()
 	}
 
 	if (isSorting) partition();
-	else if (left->isSorting || left->areNodesSorting) left->sortTree();
-	else if (right->isSorting || right->areNodesSorting) right->sortTree();
+	else if (path[0]->isSorting || path[0]->areNodesSorting) path[0]->sortTree();
+	else if (path[1]->isSorting || path[1]->areNodesSorting) path[1]->sortTree();
 	
 
 
 	if (!isSorting && !areNodesInit) setupNodes();
 	if (areNodesInit) {
-		if (left->areNodesSorting || right->areNodesSorting) areNodesSorting = true;
-		if (!left->areNodesSorting && !right->areNodesSorting
-			&& !left->isSorting && !right->isSorting) 	areNodesSorting = false;
+		if (path[0]->areNodesSorting || path[1]->areNodesSorting) areNodesSorting = true;
+		if (!path[0]->areNodesSorting && !path[1]->areNodesSorting
+			&& !path[0]->isSorting && !path[1]->isSorting) 	areNodesSorting = false;
 
 	}
 }
@@ -80,8 +80,8 @@ void QuickTree::setupNodes()
 	rightArr.resize(treeVec.size() - midpoint - 1);
 	for (int i = midpoint + 1, right = 0; i < treeVec.size(); i++, right++) rightArr[right] = treeVec[i];
 
-	left = new QuickTree(leftArr);
-	right = new QuickTree(rightArr);
+	path[0] = new QuickTree(leftArr);
+	path[1] = new QuickTree(rightArr);
 
 	areNodesInit = true;
 	areNodesSorting = true;
@@ -92,17 +92,17 @@ void QuickTree::updateNodes()
 {
 	if (isLeaf) return;
 
-	left->updateNodes();
-	right->updateNodes();
+	path[0]->updateNodes();
+	path[1]->updateNodes();
 
-	if (left->color != -1) color = left->color;
-	else if (right->color != -1) color = left->treeVec.size() + right->color + 1;
-	else if (color == pivot) color = left->treeVec.size();
+	if (path[0]->color != -1) color = path[0]->color;
+	else if (path[1]->color != -1) color = path[0]->treeVec.size() + path[1]->color + 1;
+	else if (color == pivot) color = path[0]->treeVec.size();
 	else color = -1;
 
 	treeVec.clear();
 
-	for (int i = 0; i < left->treeVec.size(); i++) treeVec.push_back(left->treeVec[i]);
+	for (int i = 0; i < path[0]->treeVec.size(); i++) treeVec.push_back(path[0]->treeVec[i]);
 	treeVec.push_back(pivotValue);
-	for (int i = 0; i < right->treeVec.size(); i++) treeVec.push_back(right->treeVec[i]);
+	for (int i = 0; i < path[1]->treeVec.size(); i++) treeVec.push_back(path[1]->treeVec[i]);
 }

@@ -52,38 +52,29 @@ void Bucket::mergeNodes()
 	for (;mainIterator[0] < path[0]->bucketArray.size() ||
 		mainIterator[1] < path[1]->bucketArray.size();) {
 
+		int first, second;
+
 		if (path[0]->bucketArray[mainIterator[0]] < path[1]->bucketArray[mainIterator[1]]) {
-			bucketArray.push_back(path[0]->bucketArray[mainIterator[0]]);
-			mainIterator[0]++;
-
-			if (mainIterator[0] >= path[0]->bucketArray.size()) {
-				for (; mainIterator[1] < path[1]->bucketArray.size(); mainIterator[1]++) 
-					bucketArray.push_back(path[1]->bucketArray[mainIterator[1]]);
-				break;
-			}
-
-
-			for (int i = mainIterator[0]; i < path[0]->bucketArray.size(); i++) bucketArray.push_back(path[0]->bucketArray[i]);
-			for (int i = mainIterator[1]; i < path[1]->bucketArray.size(); i++) bucketArray.push_back(path[1]->bucketArray[i]);
-			color = mainIterator[0] + mainIterator[1] - 1;
-			return;
+			first = 0; second = 1;
 		}
 		else {
-			bucketArray.push_back(path[1]->bucketArray[mainIterator[1]]);
-			mainIterator[1]++;
-
-			if (mainIterator[1] >= path[1]->bucketArray.size()) {
-				for (; mainIterator[0] < path[0]->bucketArray.size(); mainIterator[0]++)
-					bucketArray.push_back(path[0]->bucketArray[mainIterator[0]]);
-				break;
-			}
-
-
-			for (int i = mainIterator[0]; i < path[0]->bucketArray.size(); i++) bucketArray.push_back(path[0]->bucketArray[i]);
-			for (int i = mainIterator[1]; i < path[1]->bucketArray.size(); i++) bucketArray.push_back(path[1]->bucketArray[i]);
-			color = mainIterator[0] + mainIterator[1] - 1;
-			return;
+			first = 1; second = 0;
 		}
+
+		bucketArray.push_back(path[first]->bucketArray[mainIterator[first]]);
+		mainIterator[first]++;
+
+		if (mainIterator[first] >= path[first]->bucketArray.size()) {
+			for (; mainIterator[second] < path[second]->bucketArray.size(); mainIterator[second]++)
+				bucketArray.push_back(path[second]->bucketArray[mainIterator[second]]);
+			break;
+		}
+
+
+		for (int i = mainIterator[0]; i < path[0]->bucketArray.size(); i++) bucketArray.push_back(path[0]->bucketArray[i]);
+		for (int i = mainIterator[1]; i < path[1]->bucketArray.size(); i++) bucketArray.push_back(path[1]->bucketArray[i]);
+		color = mainIterator[0] + mainIterator[1] - 1;
+		return;
 	}
 
 	isMerging = false;

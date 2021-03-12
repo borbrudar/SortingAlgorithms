@@ -4,7 +4,6 @@ void Selection::sortArray()
 {
 	parseThroughArray();
 	updateIterator();
-	sortingSlowDown();
 }
 
 

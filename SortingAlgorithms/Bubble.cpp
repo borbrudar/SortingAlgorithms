@@ -9,8 +9,6 @@ void Bubble::sortArray()
 	}
 
 	updateIterators(vector.size());
-	
-	sortingSlowDown();
 }
 
 void Bubble::updateIterators(int arraySize)

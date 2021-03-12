@@ -16,5 +16,4 @@ void Insertion::sortArray()
 
 	if(iterator < (vector.size() - 1)) iterator++;
 
-	sortingSlowDown();
 }

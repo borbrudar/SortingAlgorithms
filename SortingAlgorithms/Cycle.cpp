@@ -3,7 +3,6 @@
 void Cycle::sortArray()
 {
 	if (isParsing) sortCycles();
-	sortingSlowDown();
 }
 
 void Cycle::sortCycles()

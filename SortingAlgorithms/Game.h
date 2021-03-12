@@ -28,7 +28,6 @@ private:
 	void drawButtons();
 	void drawStrings();
 
-	void updateStepDelay();
 	void updateAlgorithmSelection();
 
 	RenderWindow window;

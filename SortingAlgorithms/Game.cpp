@@ -37,17 +37,22 @@ void Game::updateGame()
 {
 	while (window.pollEvent(event)) {
 		if (event.type == Event::Closed) window.close();
-		if (event.type == Event::KeyPressed) updateStepDelay();
-
+		sortingAlgorithm->updateStepDelay(event);
 		updateAlgorithmSelection();
 	}
 
 	if (randomize.isPressed(window, mouse, event)) init();
+
 	sortingAlgorithm->sortArray();
+	sortingAlgorithm->sleep();
 }
 
 void Game::init()
 {
+	//careful, this variable sets the first speed
+	int prevStepDelay = 0;
+	if(sortingAlgorithm) prevStepDelay = sortingAlgorithm->getStepDelay();
+
 	switch (algorithmNumber) {
 	case 0:
 		sortingAlgorithm = std::make_unique<Bubble>();
@@ -69,7 +74,7 @@ void Game::init()
 		break;
 	}
 
-	sortingAlgorithm->setSleepInMiliseconds(stepDelay); 
+    sortingAlgorithm->setStepDelay(prevStepDelay);
 	sortingAlgorithm->randomizeUnsortedVector();
 	sortingAlgorithm->init(Vector2f(SCR_WIDTH, SCR_HEIGHT));
 }
@@ -87,19 +92,8 @@ void Game::drawStrings()
 	string.drawString(window, Vector2f(20, 10), algName);
 
 	std::string sleep = "Step delay: " + std::to_string(
-		sortingAlgorithm->getSleepInMiliseconds()) + " ms";
+		sortingAlgorithm->getStepDelay()) + " ms";
 	string.drawString(window, Vector2f(20, 30), sleep);
-}
-
-void Game::updateStepDelay()
-{
-	float currentSleep = sortingAlgorithm->getSleepInMiliseconds();
-
-	if (event.key.code == Keyboard::Left) stepDelay -= 5;
-	if (event.key.code == Keyboard::Right) stepDelay += 5;
-
-	sortingAlgorithm->setSleepInMiliseconds(stepDelay);
-	stepDelay = sortingAlgorithm->getSleepInMiliseconds();
 }
 
 void Game::updateAlgorithmSelection()

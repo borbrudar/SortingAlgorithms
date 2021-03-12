@@ -11,6 +11,5 @@ void Merge::sortArray()
 	vector = bucket.updateBucket();
 	updateColorArray(bucket.getColor());
 
-	sortingSlowDown();
 }
 

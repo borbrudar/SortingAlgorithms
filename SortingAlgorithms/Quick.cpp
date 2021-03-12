@@ -11,5 +11,4 @@ void Quick::sortArray()
 	quick.sortTree();
 	vector = quick.updateTree();
 	updateColorArray(quick.getColor());
-	sortingSlowDown();
 }

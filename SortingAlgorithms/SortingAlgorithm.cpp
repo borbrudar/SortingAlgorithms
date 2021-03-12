@@ -10,6 +10,23 @@ int SortingAlgorithm::getMaxColorArraySize()
 	return maxColorArraySize;
 }
 
+int SortingAlgorithm::getStepDelay()
+{
+	return stepDelay;
+}
+
+void SortingAlgorithm::setStepDelay(int newStepDelay)
+{
+	if (newStepDelay < 0) return;
+	stepDelay = newStepDelay;
+}
+
+void SortingAlgorithm::sleep()
+{
+	sf::Time time = sf::milliseconds(stepDelay);
+	sf::sleep(time);
+}
+
 void SortingAlgorithm::init(Vector2f screenSize)
 {
 	SCR_WIDTH = screenSize.x;
@@ -33,22 +50,6 @@ void SortingAlgorithm::drawVector(RenderWindow &window)
 std::string SortingAlgorithm::getAlgorithmName()
 {
 	return algorithmName;
-}
-
-int SortingAlgorithm::getSleepInMiliseconds()
-{
-	return sleepForInMiliseconds;
-}
-
-void SortingAlgorithm::setSleepInMiliseconds(int miliseconds)
-{
-	if (miliseconds >= 0) sleepForInMiliseconds = miliseconds;
-}
-
-void SortingAlgorithm::sortingSlowDown()
-{
-	sf::Time time = sf::milliseconds(sleepForInMiliseconds);
-	sf::sleep(time);
 }
 
 void SortingAlgorithm::updateColorArray(int indexToAdd)
@@ -95,4 +96,14 @@ void SortingAlgorithm::randomizeUnsortedVector()
 		vector[i] = sortedArray[randomValueFromSortedArray];
 		sortedArray.erase(sortedArray.begin() + randomValueFromSortedArray);
 	}
+}
+
+void SortingAlgorithm::updateStepDelay(Event event)
+{
+	if (!(event.type == Event::KeyPressed)) return;
+
+	if (event.key.code == Keyboard::Left) stepDelay -= 5;
+	if (event.key.code == Keyboard::Right) stepDelay += 5;
+
+	if (stepDelay < 0) stepDelay = 0;
 }

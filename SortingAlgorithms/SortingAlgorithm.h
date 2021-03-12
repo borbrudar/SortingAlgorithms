@@ -11,27 +11,30 @@ public:
 	void init(Vector2f screenSize);
 	void drawVector(RenderWindow &window);
 	void randomizeUnsortedVector();
+	void updateStepDelay(Event event);
 
 	std::string getAlgorithmName();
 
 	std::deque<int> getColorArray();
 	int getMaxColorArraySize();
-
-	void setSleepInMiliseconds(int miliseconds);
-	int getSleepInMiliseconds();
-
-protected:
-	void sortingSlowDown();
-	void updateColorArray(int indexToAdd);
+	
+	int getStepDelay();
+	void setStepDelay(int newStepDelay);
+	void sleep();
+private:
 	Color chooseLineColor(int arrayValue);
 
+protected:
+	void updateColorArray(int indexToAdd);
 	std::vector<int> vector;
 
 	std::deque<int> colorArray;
 	int maxColorArraySize = 10;
-	int sleepForInMiliseconds = 30;
 	std::string algorithmName;
 
 	int SCR_WIDTH, SCR_HEIGHT;
+private:
 	int vectorSize = 80;
+	
+	int stepDelay = 0;
 };

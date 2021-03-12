@@ -3,7 +3,7 @@
 #include <cmath>
 #include "BinaryTree.h"
 
-class Bucket : public BinaryTree{
+class Bucket : public BinaryTree<Bucket>{
 public:
 	Bucket() = default;
 	Bucket(std::vector<int>& vec);
@@ -15,7 +15,6 @@ private:
 	void mergeNodes();
 	void setupNewNodes();
 
-	Bucket* path[2];
 	bool isLeaf = 0, isMerging = 0;
 	int mainIterator[2] = { 0,0 };
 };

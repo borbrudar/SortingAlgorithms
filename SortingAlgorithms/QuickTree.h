@@ -3,7 +3,7 @@
 #include <cmath>
 #include "BinaryTree.h"
 
-class QuickTree : public BinaryTree {
+class QuickTree : public BinaryTree<QuickTree> {
 public:
 	QuickTree() = default;
 	QuickTree(std::vector<int>& vec);
@@ -16,7 +16,6 @@ private:
 	void setupNodes();
 	void updateNodes();
 
-	QuickTree* path[2];
 	bool isSorting = true, areNodesInit = false, isLeaf = true, areNodesSorting = false;
 
 	int pivot, j = 0, i = -1;

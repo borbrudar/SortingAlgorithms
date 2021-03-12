@@ -72,16 +72,7 @@ void QuickTree::setupNodes()
 		return;
 	}
 
-	std::vector<int> leftArr;
-	leftArr.resize(midpoint);
-	for (int i = 0; i < leftArr.size(); i++) leftArr[i] = dataVector[i];
-
-	std::vector<int> rightArr;
-	rightArr.resize(dataVector.size() - midpoint - 1);
-	for (int i = midpoint + 1, right = 0; i < dataVector.size(); i++, right++) rightArr[right] = dataVector[i];
-
-	path[0] = new QuickTree(leftArr);
-	path[1] = new QuickTree(rightArr);
+	splitVectorToNodes(midpoint);
 
 	areNodesInit = true;
 	areNodesSorting = true;

@@ -92,6 +92,5 @@ void Bucket::setupNewNodes()
 	}
 
 	splitVectorToNodes(midpoint);
-
 }
 

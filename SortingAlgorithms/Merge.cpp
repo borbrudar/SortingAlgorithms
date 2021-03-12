@@ -9,7 +9,7 @@ void Merge::sortArray()
 
 	bucket.sortBucket();
 	vector = bucket.updateBucket();
-	updateColorArray(bucket.color);
+	updateColorArray(bucket.getColor());
 
 	sortingSlowDown();
 }

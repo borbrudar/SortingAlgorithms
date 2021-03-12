@@ -6,10 +6,12 @@ template<typename Node>
 class BinaryTree {
 public:
 	BinaryTree() = default;
-	
-	void splitVectorToNodes(int midpoint);
+	int getColor();
+private:
 	void splitLeft(int midpoint, std::vector<int>& vec);
 	void splitRight(int midpoint, std::vector<int>& vec);
+protected:
+	void splitVectorToNodes(int midpoint);
 
 	Node* path[2] = { NULL,NULL };
 	int color = -1;
@@ -26,6 +28,12 @@ inline void BinaryTree<Node>::splitVectorToNodes(int midpoint)
 	
 	path[0] = new Node(leftArr);
 	path[1] = new Node(rightArr);
+}
+
+template<typename Node>
+inline int BinaryTree<Node>::getColor()
+{
+	return color;
 }
 
 template<typename Node>

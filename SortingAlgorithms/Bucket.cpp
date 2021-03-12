@@ -31,11 +31,11 @@ void Bucket::updateNodes()
 	if(!isMerging) color = -1;
 	if (isLeaf || isMerging) return;
 
-	if (path[0]->color != -1) color = path[0]->color;
-	else if (path[1]->color != -1) color = path[0]->dataVector.size() + path[1]->color;
-	
 	path[0]->updateNodes();
 	path[1]->updateNodes();
+
+	if (path[0]->color != -1) color = path[0]->color;
+	else if (path[1]->color != -1) color = path[0]->dataVector.size() + path[1]->color;	
 
 	dataVector.clear();
 
@@ -91,15 +91,7 @@ void Bucket::setupNewNodes()
 		return;
 	}
 
-	std::vector<int> leftArr;
-	leftArr.resize(midpoint);
-	for (int i = 0; i < leftArr.size(); i++) leftArr[i] = dataVector[i];
+	splitVectorToNodes(midpoint);
 
-	std::vector<int> rightArr;
-	rightArr.resize(dataVector.size() - midpoint);
-	for (int i = midpoint, right = 0; i < dataVector.size(); i++, right++) rightArr[right] = dataVector[i];
-
-	path[0] = new Bucket(leftArr);
-	path[1] = new Bucket(rightArr);
 }
 

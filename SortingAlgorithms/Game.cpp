@@ -49,9 +49,11 @@ void Game::updateGame()
 
 void Game::init()
 {
-	//careful, this variable sets the first speed
-	int prevStepDelay = 0;
-	if(sortingAlgorithm) prevStepDelay = sortingAlgorithm->getStepDelay();
+	int prevStepDelay;
+	bool isPrevDelay;
+	sortingAlgorithm ? isPrevDelay = true : isPrevDelay = false;
+
+	if(isPrevDelay) prevStepDelay = sortingAlgorithm->getStepDelay();
 
 	switch (algorithmNumber) {
 	case 0:
@@ -74,7 +76,7 @@ void Game::init()
 		break;
 	}
 
-    sortingAlgorithm->setStepDelay(prevStepDelay);
+    if(isPrevDelay) sortingAlgorithm->setStepDelay(prevStepDelay);
 	sortingAlgorithm->randomizeUnsortedVector();
 	sortingAlgorithm->init(Vector2f(SCR_WIDTH, SCR_HEIGHT));
 }

@@ -85,15 +85,8 @@ void QuickTree::updateNodes()
 
 	path[0]->updateNodes();
 	path[1]->updateNodes();
+	
+	updateNodesBase();
 
-	if (path[0]->color != -1) color = path[0]->color;
-	else if (path[1]->color != -1) color = path[0]->dataVector.size() + path[1]->color + 1;
-	else if (color == pivot) color = path[0]->dataVector.size();
-	else color = -1;
-
-	dataVector.clear();
-
-	for (int i = 0; i < path[0]->dataVector.size(); i++) dataVector.push_back(path[0]->dataVector[i]);
-	dataVector.push_back(pivotValue);
-	for (int i = 0; i < path[1]->dataVector.size(); i++) dataVector.push_back(path[1]->dataVector[i]);
+	dataVector.insert(dataVector.begin() + pivot, pivotValue);
 }

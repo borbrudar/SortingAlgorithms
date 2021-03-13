@@ -12,11 +12,11 @@ public:
 	void sortTree();
 	std::vector<int> updateTree();
 private:
+	void updateNodes();
 	void partition();
 	void setupNodes();
-	void updateNodes();
 
-	bool isSorting = true, areNodesInit = false, isLeaf = true, areNodesSorting = false;
+	bool isSorting = true, isLeaf = true, areNodesInit = false, areNodesSorting = false;
 
 	int pivot, j = 0, i = -1;
 	int pivotValue;

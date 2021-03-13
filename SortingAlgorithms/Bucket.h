@@ -11,9 +11,9 @@ public:
 	void sortBucket();
 	std::vector<int> updateBucket();
 private:
-	void updateNodes();
 	void mergeNodes();
 	void setupNewNodes();
+	void updateNodes();
 
 	bool isLeaf = 0, isMerging = 0;
 	int mainIterator[2] = { 0,0 };

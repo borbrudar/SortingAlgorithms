@@ -28,19 +28,12 @@ std::vector<int> Bucket::updateBucket()
 
 void Bucket::updateNodes()
 {
-	if(!isMerging) color = -1;
-	if (isLeaf || isMerging) return;
+	if (isMerging || isLeaf) return;
 
 	path[0]->updateNodes();
 	path[1]->updateNodes();
 
-	if (path[0]->color != -1) color = path[0]->color;
-	else if (path[1]->color != -1) color = path[0]->dataVector.size() + path[1]->color;	
-
-	dataVector.clear();
-
-	for (int i = 0; i < path[0]->dataVector.size(); i++) dataVector.push_back(path[0]->dataVector[i]);
-	for (int i = 0; i < path[1]->dataVector.size(); i++) dataVector.push_back(path[1]->dataVector[i]);
+	updateNodesBase();
 }
 
 void Bucket::mergeNodes()

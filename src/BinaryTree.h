@@ -14,7 +14,7 @@ protected:
 	void splitVectorToNodes(int midpoint);
 	void updateNodesBase();
 
-	Node* path[2] = { NULL,NULL };
+	Node* path[2] = { nullptr, nullptr };
 	int color = -1;
 	std::vector<int> dataVector;
 };

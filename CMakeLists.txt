@@ -74,8 +74,6 @@ if(WIN32)
        "${CMAKE_CURRENT_BINARY_DIR}/external/SFML/lib/sfml-system-2.dll"
        "${CMAKE_CURRENT_BINARY_DIR}/external/SFML/lib/sfml-window-2.dll"
         ${CMAKE_CURRENT_BINARY_DIR})
-    configure_file("${CMAKE_CURRENT_SOURCE_DIR}/win32/OpenAL32.dll"
-    DESTINATION ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)    
 endif()
 
 #copy fonts
@@ -100,11 +98,6 @@ if(WIN32)
         "${CMAKE_CURRENT_BINARY_DIR}/external/SFML/lib/sfml-system-2.dll"
         "${CMAKE_CURRENT_BINARY_DIR}/external/SFML/lib/sfml-window-2.dll"
          ${CMAKE_CURRENT_BINARY_DIR})
-    #openal ig
-    add_custom_command(TARGET ${PR_NAME} POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy
-                "${CMAKE_CURRENT_SOURCE_DIR}/win32/OpenAL32.dll"
-                ${CMAKE_INSTALL_BINDIR})
 elseif(UNIX)
     install(TARGETS ${PR_NAME} 
        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})

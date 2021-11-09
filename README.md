@@ -7,4 +7,4 @@
 
 
 ## License
-[/](license.md)
+[MIT](license.md)

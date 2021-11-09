@@ -1,4 +1,4 @@
-## Sorting Algortihms Visualization
+## Sorting Algorithms Visualization
 
 ![Example images](/../screens/v1.png?raw=true "Sorting")
 

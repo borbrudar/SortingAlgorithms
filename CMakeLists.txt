@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 if(WIN32)
     #no spaces in path
-    set(CMAKE_INSTALL_PREFIX C:\\)
+    set(CMAKE_INSTALL_PREFIX C:/ CACHE PATH "default path" FORCE)
 endif()
 set(PR_NAME Sorting)
 project(${PR_NAME} VERSION 0.1.0)

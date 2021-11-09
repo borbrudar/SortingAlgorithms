@@ -1,4 +1,5 @@
 #include "Bucket.h"
+#include <math.h>
 
 Bucket::Bucket(std::vector<int>& vec)
 {
@@ -77,7 +78,7 @@ void Bucket::mergeNodes()
 void Bucket::setupNewNodes()
 {
 	float vecSize = dataVector.size();
-	float midpoint = std::ceilf(vecSize / 2.f);
+	float midpoint = std::ceil(vecSize / 2.f);
 
 	if (vecSize == 1) {
 		isLeaf = true; 

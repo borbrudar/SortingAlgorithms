@@ -4,7 +4,7 @@ if(WIN32)
     set(CMAKE_INSTALL_PREFIX C:\\)
 endif()
 set(PR_NAME Sorting)
-project(${PR_NAME})
+project(${PR_NAME} VERSION 0.1.0)
 set(CMAKE_CXX_STANDARD)
 
 include(GNUInstallDirs)
@@ -32,7 +32,7 @@ endif()
 
 
 #source files
-set(SOURCE_FILES_NAMES
+set(SOURCES
     BinaryTree
     Bubble
     Bucket
@@ -46,18 +46,19 @@ set(SOURCE_FILES_NAMES
     Quick  
     QuickTree 
     Selection 
-    SortingAlgorithms 
+    SortingAlgorithm
     StringU
 )
 
-list(TRANSFORM SOURCE_FILES_NAMES APPEND ".cpp")
-list(TRANSFORM SOURCE_FILES_NAMES PREPEND "src/")
+list(TRANSFORM SOURCES APPEND ".cpp")
+list(TRANSFORM SOURCES PREPEND "src/")
 
 if(UNIX)
     set(CMAKE_INSTALL_RPATH $ORIGIN/../lib)
 endif()
 
-add_executable(${PR_NAME} ${SOURCE_FILES_NAMES})
+add_executable(${PR_NAME} ${SOURCES})
+
 target_include_directories(${PR_NAME} 
 PRIVATE
 $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
@@ -85,7 +86,7 @@ add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/external/SFML")
 target_link_libraries(${PR_NAME} sfml-graphics sfml-audio)
 
 #------------------INSTALL SECTION----------------------
-install(TARGETS Arcade 
+install(TARGETS ${PR_NAME} 
 RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/font DESTINATION ${CMAKE_INSTALL_BINDIR})

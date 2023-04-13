@@ -7,4 +7,4 @@
 
 
 ## License
-[MIT](license.md)
+[GPLv3](license.md)

@@ -1,6 +1,6 @@
-#include "Game.h"
+#include "Main.h"
 
-Game::Game()
+Main::Main()
 {
 	window.create(VideoMode(SCR_WIDTH, SCR_HEIGHT), "Sorting Algorithms");
 
@@ -13,15 +13,15 @@ Game::Game()
 
 }
 
-void Game::run()
+void Main::run()
 {
 	while (window.isOpen()) {
-		updateGame();
-		drawGame();
+		update();
+		draw();
 	}
 }
 
-void Game::drawGame()
+void Main::draw()
 {
 	Color backgroundColor = Color(64, 64, 64);
 	window.clear(backgroundColor);
@@ -33,7 +33,7 @@ void Game::drawGame()
 	window.display();
 }
 
-void Game::updateGame()
+void Main::update()
 {
 	while (window.pollEvent(event)) {
 		if (event.type == Event::Closed) window.close();
@@ -47,7 +47,7 @@ void Game::updateGame()
 	sortingAlgorithm->sleep();
 }
 
-void Game::init()
+void Main::init()
 {
 	int prevStepDelay;
 	bool isPrevDelay;
@@ -82,13 +82,13 @@ void Game::init()
 }
 
 
-void Game::drawButtons()
+void Main::drawButtons()
 {
 	randomize.drawButton(window);
 	algSelection.drawDropdown(window);
 }
 
-void Game::drawStrings()
+void Main::drawStrings()
 {
 	std::string algName = "Using: " + sortingAlgorithm->getAlgorithmName() + " Sort";
 	string.drawString(window, Vector2f(20, 10), algName);
@@ -98,7 +98,7 @@ void Game::drawStrings()
 	string.drawString(window, Vector2f(20, 30), sleep);
 }
 
-void Game::updateAlgorithmSelection()
+void Main::updateAlgorithmSelection()
 {
 	int newAlgorithmNumber = algSelection.updateDropdown(window, mouse, event);
 	if (newAlgorithmNumber != -1) {

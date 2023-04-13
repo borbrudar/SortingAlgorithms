@@ -14,15 +14,15 @@
 #include "StringU.h"
 
 using namespace sf;
-class Game {
+class Main {
 public:
-	Game();
+	Main();
 	void run();
 
-	const int SCR_WIDTH = 640, SCR_HEIGHT = SCR_WIDTH / 4 * 3;
+	const int SCR_WIDTH = 1080, SCR_HEIGHT = SCR_WIDTH / 16 * 9;
 private:
-	void drawGame();
-	void updateGame();
+	void draw();
+	void update();
 	void init();
 
 	void drawButtons();

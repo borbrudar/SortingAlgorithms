@@ -4,6 +4,7 @@
 
 Main::Main()
 {
+	clock.restart();
 	sortingAlgorithm = std::make_unique<Bubble>();
 	sortingInit();
 
@@ -51,10 +52,11 @@ void Main::update()
 	}
 
 	if (randomize.isPressed(window, mouse, event)) init();
-	adraw.update();
-	
-	Time time = sf::milliseconds(delay);
-	sleep(time);
+
+	if(clock.getElapsedTime().asMilliseconds() >= delay){
+		adraw.update();
+		clock.restart();
+	}
 }
 
 void Main::init()
@@ -129,8 +131,7 @@ void Main::sortingInit()
 	auto start = std::chrono::high_resolution_clock::now();	
 	sortingAlgorithm->sortArray();
 	auto stop = std::chrono::high_resolution_clock::now();
-	auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop-start);
-	etime = duration.count();
+	etime = std::chrono::duration_cast<std::chrono::microseconds>(stop-start).count();
 
 	//assert(sortingAlgorithm->verify());
 

@@ -1,4 +1,5 @@
 #include "Main.h"
+#include <cassert>
 
 Main::Main()
 {
@@ -117,6 +118,7 @@ void Main::sortingInit()
 	sortingAlgorithm->randomize();
 	auto vec = sortingAlgorithm->getVec();
 	sortingAlgorithm->sortArray();
+	assert(sortingAlgorithm->verify());
 	auto swaps = sortingAlgorithm->getSwaps();
 	adraw.setup(std::move(vec),std::move(swaps));
 }

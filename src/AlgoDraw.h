@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "config.h"
+#include <deque>
 
 using namespace sf;
 
@@ -15,6 +16,7 @@ private:
     int swapPos=0;
     double unitWidth,unitLength=0;
     RectangleShape block;
+    std::deque<int> colorInd;
 };
 
 

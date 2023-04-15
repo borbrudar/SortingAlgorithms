@@ -8,7 +8,7 @@ void AlgoDraw::draw(RenderWindow &window){
     }
 }
 
-void AlgoDraw::setup(std::vector<int> &&vec, std::vector<std::vector<int>> &&swaps)
+void AlgoDraw::setup(std::vector<int> &&vec, std::vector<std::pair<int,int>> &&swaps)
 {
     this->vec = std::move(vec);
     this->swaps = std::move(swaps);
@@ -21,7 +21,7 @@ void AlgoDraw::setup(std::vector<int> &&vec, std::vector<std::vector<int>> &&swa
 void AlgoDraw::update()
 {
     if(swapPos < swaps.size()){
-        std::swap(vec[swaps[swapPos][0]],vec[swaps[swapPos][1]]);
+        vec[swaps[swapPos].first] = swaps[swapPos].second;
         swapPos++;
     }
 }

@@ -13,8 +13,8 @@ public:
 	bool verify();
 
 	std::vector<int> getVec() { return vec;};
-	std::vector<std::vector<int>> getSwaps() { return swaps; };
+	std::vector<std::pair<int,int>> getSwaps() { return swaps; };
 protected:
 	std::vector<int> vec;
-	std::vector<std::vector<int>> swaps;
+	std::vector<std::pair<int,int>> swaps; // index, new_val
 };

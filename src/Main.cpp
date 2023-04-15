@@ -79,7 +79,7 @@ void Main::init()
 		sortingAlgorithm = std::make_unique<Merge>();
 		break;
 	case 5:
-		//sortingAlgorithm = std::make_unique<Quick>();
+		sortingAlgorithm = std::make_unique<Quick>();
 		break;
 	}
 

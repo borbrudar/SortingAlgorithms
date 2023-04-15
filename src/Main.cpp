@@ -73,7 +73,7 @@ void Main::init()
 		sortingAlgorithm = std::make_unique<Insertion>();
 		break;
 	case 3:
-		//sortingAlgorithm = std::make_unique<Cycle>();
+		sortingAlgorithm = std::make_unique<Cycle>();
 		break;
 	case 4:
 		//sortingAlgorithm = std::make_unique<Merge>();

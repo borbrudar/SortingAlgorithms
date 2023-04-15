@@ -46,6 +46,12 @@ void Main::update()
 		if(event.type == Event::KeyPressed){
 			if(event.key.code == Keyboard::Left) delay -= 5, delay = std::max(delay,0);
 			if(event.key.code == Keyboard::Right) delay += 5;
+			if(event.key.code == Keyboard::Up){
+				if(vectorSize != maxVectorSize) vectorSize += 50, sortingInit();
+			}	
+			if(event.key.code == Keyboard::Down){
+				if(vectorSize != minVectorSize) vectorSize -= 50, sortingInit();
+			}
 		}
 
 		updateAlgorithmSelection();
@@ -105,12 +111,15 @@ void Main::drawStrings()
 
 	std::string sleep = "Step delay: " + std::to_string(delay) + " ms";
 	string.drawString(window, Vector2f(20, 30), sleep);
+
+	std::string siz = "Array size is " + std::to_string(vectorSize);
+	string.drawString(window, Vector2f(20, 50), siz);
 	
 	std::string write = "Buffer writes: " + std::to_string(writes);
-	string.drawString(window, Vector2f(20, 50), write);
+	string.drawString(window, Vector2f(20, 70), write);
 
 	std::string time = "Execution time: " + std::to_string(etime) + " microseconds";
-	string.drawString(window, Vector2f(20, 70), time);
+	string.drawString(window, Vector2f(20, 90), time);
 }
 
 void Main::updateAlgorithmSelection()
@@ -124,7 +133,7 @@ void Main::updateAlgorithmSelection()
 
 void Main::sortingInit()
 {
-	sortingAlgorithm->randomize();
+	sortingAlgorithm->randomize(vectorSize);
 	auto vec = sortingAlgorithm->getVec();
 
 

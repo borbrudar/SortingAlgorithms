@@ -9,7 +9,7 @@ using namespace sf;
 class SortingAlgorithm {
 public:
 	virtual void sortArray() = 0;
-	void randomize();
+	void randomize(int vectorSize);
 	bool verify();
 
 	std::vector<int> getVec() { return vec;};
@@ -17,4 +17,5 @@ public:
 protected:
 	std::vector<int> vec;
 	std::vector<std::pair<int,int>> swaps; // index, new_val
+	int vectorSize;
 };

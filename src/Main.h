@@ -42,7 +42,7 @@ private:
 
 	Button randomize;
 	Dropdown algSelection;
-	int algorithmNumber = 0,delay = 0, writes = 0,etime=0;
+	int algorithmNumber = 0,delay = 0, writes = 0,etime=0,vectorSize = 200;
 	Clock clock;
 	AlgoDraw adraw;
 };

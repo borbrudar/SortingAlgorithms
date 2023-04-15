@@ -23,6 +23,8 @@ void AlgoDraw::draw(RenderWindow &window){
 
 void AlgoDraw::setup(std::vector<int> &&vec, std::vector<std::pair<int,int>> &&swaps)
 {
+    colorInd.clear();
+    this->vec.clear(),this->swaps.clear();
     this->vec = std::move(vec);
     this->swaps = std::move(swaps);
     swapPos = 0;

@@ -19,7 +19,6 @@ public:
 	Main();
 	void run();
 
-	const int SCR_WIDTH = 1080, SCR_HEIGHT = SCR_WIDTH / 16 * 9;
 private:
 	void draw();
 	void update();

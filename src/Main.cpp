@@ -26,7 +26,6 @@ void Main::draw()
 	Color backgroundColor = Color(64, 64, 64);
 	window.clear(backgroundColor);
 
-	sortingAlgorithm->drawVector(window);
 	drawStrings();
 	drawButtons();
 
@@ -37,14 +36,12 @@ void Main::update()
 {
 	while (window.pollEvent(event)) {
 		if (event.type == Event::Closed) window.close();
-		sortingAlgorithm->updateStepDelay(event);
 		updateAlgorithmSelection();
 	}
 
 	if (randomize.isPressed(window, mouse, event)) init();
 
 	sortingAlgorithm->sortArray();
-	sortingAlgorithm->sleep();
 }
 
 void Main::init()
@@ -53,32 +50,29 @@ void Main::init()
 	bool isPrevDelay;
 	sortingAlgorithm ? isPrevDelay = true : isPrevDelay = false;
 
-	if(isPrevDelay) prevStepDelay = sortingAlgorithm->getStepDelay();
 
 	switch (algorithmNumber) {
 	case 0:
 		sortingAlgorithm = std::make_unique<Bubble>();
 		break;
 	case 1:
-		sortingAlgorithm = std::make_unique<Selection>();
+		//sortingAlgorithm = std::make_unique<Selection>();
 		break;
 	case 2:
-		sortingAlgorithm = std::make_unique<Insertion>();
+		//sortingAlgorithm = std::make_unique<Insertion>();
 		break;
 	case 3:
-		sortingAlgorithm = std::make_unique<Cycle>();
+		//sortingAlgorithm = std::make_unique<Cycle>();
 		break;
 	case 4:
-		sortingAlgorithm = std::make_unique<Merge>();
+		//sortingAlgorithm = std::make_unique<Merge>();
 		break;
 	case 5:
-		sortingAlgorithm = std::make_unique<Quick>();
+		//sortingAlgorithm = std::make_unique<Quick>();
 		break;
 	}
 
-    if(isPrevDelay) sortingAlgorithm->setStepDelay(prevStepDelay);
-	sortingAlgorithm->randomizeUnsortedVector();
-	sortingAlgorithm->init(Vector2f(SCR_WIDTH, SCR_HEIGHT));
+	sortingAlgorithm->randomize();
 }
 
 
@@ -90,12 +84,13 @@ void Main::drawButtons()
 
 void Main::drawStrings()
 {
-	std::string algName = "Using: " + sortingAlgorithm->getAlgorithmName() + " Sort";
+	/*std::string algName = "Using: " + sortingAlgorithm->getAlgorithmName() + " Sort";
 	string.drawString(window, Vector2f(20, 10), algName);
 
 	std::string sleep = "Step delay: " + std::to_string(
 		sortingAlgorithm->getStepDelay()) + " ms";
 	string.drawString(window, Vector2f(20, 30), sleep);
+	*/
 }
 
 void Main::updateAlgorithmSelection()

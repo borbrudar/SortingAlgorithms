@@ -33,18 +33,15 @@ endif()
 
 #source files
 set(SOURCES
-    BinaryTree
     Bubble
-    Bucket
     Button 
     Cycle 
     Dropdown
-    Game 
+    Main 
     Insertion 
     main    
     Merge 
     Quick  
-    QuickTree 
     Selection 
     SortingAlgorithm
     StringU

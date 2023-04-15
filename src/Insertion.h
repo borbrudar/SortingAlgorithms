@@ -3,10 +3,5 @@
 
 class Insertion : public SortingAlgorithm {
 public:
-	Insertion() {
-		algorithmName = "Insertion";
-	}
 	void sortArray();
-
-	int iterator = 1;
 };

@@ -12,6 +12,8 @@
 #include "Merge.h"
 #include "Quick.h"
 #include "StringU.h"
+#include "AlgoDraw.h"
+
 
 using namespace sf;
 class Main {
@@ -28,6 +30,8 @@ private:
 	void drawStrings();
 
 	void updateAlgorithmSelection();
+	void sortingInit();
+
 
 	RenderWindow window;
 	Event event;
@@ -40,7 +44,6 @@ private:
 	Dropdown algSelection;
 	int algorithmNumber = 0;
 
-	int stepDelay = 0;
-	int arraySize = 80;
+	AlgoDraw adraw;
 };
 

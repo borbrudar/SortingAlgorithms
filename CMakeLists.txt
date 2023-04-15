@@ -33,6 +33,7 @@ endif()
 
 #source files
 set(SOURCES
+    AlgoDraw
     Bubble
     Button 
     Cycle 

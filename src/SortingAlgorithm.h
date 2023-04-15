@@ -11,6 +11,9 @@ public:
 	virtual void sortArray() = 0;
 	void randomize();
 	bool verify();
+
+	std::vector<int> getVec() { return vec;};
+	std::vector<std::vector<int>> getSwaps() { return swaps; };
 protected:
 	std::vector<int> vec;
 	std::vector<std::vector<int>> swaps;

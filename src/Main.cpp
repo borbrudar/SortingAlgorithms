@@ -2,14 +2,17 @@
 
 Main::Main()
 {
+	sortingAlgorithm = std::make_unique<Bubble>();
+	sortingInit();
+
 	window.create(VideoMode(SCR_WIDTH, SCR_HEIGHT), "Sorting Algorithms");
 
 	randomize.init(Vector2f(530, 10), Vector2f(90, 25), "Randomize");
 	init();
 
-	std::vector<std::string> names = { "Bubble","Selection", "Insertion","Cycle", "Merge","Quick",
-	"Algorithms v" };
-	algSelection.init(6, Vector2f(400, 10), Vector2f(100, 25), names);
+	std::vector<std::string> pass = names;
+	pass.push_back("Algorithms v");
+	algSelection.init(6, Vector2f(400, 10), Vector2f(100, 25), pass);
 
 }
 
@@ -26,6 +29,7 @@ void Main::draw()
 	Color backgroundColor = Color(64, 64, 64);
 	window.clear(backgroundColor);
 
+	adraw.draw(window);
 	drawStrings();
 	drawButtons();
 
@@ -40,8 +44,7 @@ void Main::update()
 	}
 
 	if (randomize.isPressed(window, mouse, event)) init();
-
-	sortingAlgorithm->sortArray();
+	adraw.update();
 }
 
 void Main::init()
@@ -72,7 +75,8 @@ void Main::init()
 		break;
 	}
 
-	sortingAlgorithm->randomize();
+
+	sortingInit();
 }
 
 
@@ -84,13 +88,11 @@ void Main::drawButtons()
 
 void Main::drawStrings()
 {
-	/*std::string algName = "Using: " + sortingAlgorithm->getAlgorithmName() + " Sort";
+	std::string algName = "Using: " + names[algorithmNumber] + " Sort";
 	string.drawString(window, Vector2f(20, 10), algName);
 
-	std::string sleep = "Step delay: " + std::to_string(
-		sortingAlgorithm->getStepDelay()) + " ms";
+	std::string sleep = "Step delay: " + std::to_string(delay) + " ms";
 	string.drawString(window, Vector2f(20, 30), sleep);
-	*/
 }
 
 void Main::updateAlgorithmSelection()
@@ -100,4 +102,13 @@ void Main::updateAlgorithmSelection()
 		algorithmNumber = newAlgorithmNumber;
 		init();
 	}
+}
+
+void Main::sortingInit()
+{
+	sortingAlgorithm->randomize();
+	auto vec = sortingAlgorithm->getVec();
+	sortingAlgorithm->sortArray();
+	auto swaps = sortingAlgorithm->getSwaps();
+	adraw.setup(std::move(vec),std::move(swaps));
 }

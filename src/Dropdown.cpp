@@ -6,7 +6,7 @@ void Dropdown::init(int numberOfButtons,Vector2f pos, Vector2f size, std::vector
 	buttons.resize(numberOfButtons);
 
 	for (int i = 0; i < numberOfButtons;  i++) buttons[i].init(Vector2f(pos.x, pos.y + size.y* i), size, names[i]);
-	cover.init(pos, size, names[names.size() - 1]);
+	cover.init(pos, size, names.back());
 }
 
 void Dropdown::drawDropdown(RenderWindow& window)

@@ -40,11 +40,19 @@ void Main::update()
 {
 	while (window.pollEvent(event)) {
 		if (event.type == Event::Closed) window.close();
+		if(event.type == Event::KeyPressed){
+			if(event.key.code == Keyboard::Left) delay -= 5, delay = std::max(delay,0);
+			if(event.key.code == Keyboard::Right) delay += 5;
+		}
+
 		updateAlgorithmSelection();
 	}
 
 	if (randomize.isPressed(window, mouse, event)) init();
 	adraw.update();
+	
+	Time time = sf::milliseconds(delay);
+	sleep(time);
 }
 
 void Main::init()

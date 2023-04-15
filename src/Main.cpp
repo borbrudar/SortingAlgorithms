@@ -1,5 +1,6 @@
 #include "Main.h"
 #include <cassert>
+#include <chrono>
 
 Main::Main()
 {
@@ -8,12 +9,12 @@ Main::Main()
 
 	window.create(VideoMode(SCR_WIDTH, SCR_HEIGHT), "Sorting Algorithms");
 
-	randomize.init(Vector2f(530, 10), Vector2f(90, 25), "Randomize");
+	randomize.init(Vector2f(SCR_WIDTH-100-10, 10), Vector2f(100, 25), "Randomize");
 	init();
 
 	std::vector<std::string> pass = names;
 	pass.push_back("Algorithms v");
-	algSelection.init(6, Vector2f(400, 10), Vector2f(100, 25), pass);
+	algSelection.init(6, Vector2f(SCR_WIDTH-2*100 - 20, 10), Vector2f(100, 25), pass);
 
 }
 
@@ -102,6 +103,12 @@ void Main::drawStrings()
 
 	std::string sleep = "Step delay: " + std::to_string(delay) + " ms";
 	string.drawString(window, Vector2f(20, 30), sleep);
+	
+	std::string write = "Buffer writes: " + std::to_string(writes);
+	string.drawString(window, Vector2f(20, 50), write);
+
+	std::string time = "Execution time: " + std::to_string(etime) + " microseconds";
+	string.drawString(window, Vector2f(20, 70), time);
 }
 
 void Main::updateAlgorithmSelection()
@@ -117,8 +124,17 @@ void Main::sortingInit()
 {
 	sortingAlgorithm->randomize();
 	auto vec = sortingAlgorithm->getVec();
+
+
+	auto start = std::chrono::high_resolution_clock::now();	
 	sortingAlgorithm->sortArray();
-	assert(sortingAlgorithm->verify());
+	auto stop = std::chrono::high_resolution_clock::now();
+	auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop-start);
+	etime = duration.count();
+
+	//assert(sortingAlgorithm->verify());
+
 	auto swaps = sortingAlgorithm->getSwaps();
+	writes = swaps.size();
 	adraw.setup(std::move(vec),std::move(swaps));
 }

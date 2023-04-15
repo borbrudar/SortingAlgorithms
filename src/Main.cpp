@@ -67,7 +67,7 @@ void Main::init()
 		sortingAlgorithm = std::make_unique<Bubble>();
 		break;
 	case 1:
-		//sortingAlgorithm = std::make_unique<Selection>();
+		sortingAlgorithm = std::make_unique<Selection>();
 		break;
 	case 2:
 		//sortingAlgorithm = std::make_unique<Insertion>();

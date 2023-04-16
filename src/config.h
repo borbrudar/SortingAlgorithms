@@ -8,3 +8,4 @@ const double maxLengthPercentage = 0.9; // how much of the screen the biggest el
 const std::vector<std::string> names = {"Bubble","Selection", "Insertion","Cycle", "Merge","Quick"};
 
 const int colSize = 40;
+const std::string usedFont = "font/ColabMed.otf";

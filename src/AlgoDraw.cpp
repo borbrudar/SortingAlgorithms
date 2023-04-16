@@ -40,5 +40,5 @@ void AlgoDraw::update()
         colorInd.push_back(swaps[swapPos].first);
         if(colorInd.size() > colSize) colorInd.pop_front();
         swapPos++;
-    }else if(colorInd.size()) colorInd.pop_back();
+    }else if(colorInd.size()) colorInd.pop_front();
 }

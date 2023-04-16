@@ -1,8 +1,9 @@
 #include "StringU.h"
+#include "config.h"
 
 StringU::StringU() 
 {
-	font.loadFromFile("font/arial.ttf");
+	font.loadFromFile(usedFont);
 
 	text.setFont(font);
 	text.setCharacterSize(16);

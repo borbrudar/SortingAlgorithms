@@ -35,6 +35,12 @@ int Dropdown::updateDropdown(RenderWindow& window, Mouse mouse, Event event)
 	return -1;
 }
 
+void Dropdown::setStyle()
+{
+	for(int i = 0;i < buttons.size();i++) buttons[i].setStyle();
+	cover.setStyle();
+}
+
 void Dropdown::drawClosed(RenderWindow& window)
 {
 	cover.drawButton(window);

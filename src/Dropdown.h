@@ -8,6 +8,7 @@ public:
 	void init(int numberOfButtons, Vector2f pos, Vector2f size, std::vector<std::string> names);
 	void drawDropdown(RenderWindow&window);
 	int updateDropdown(RenderWindow& window, Mouse mouse, Event event);
+	void setStyle();
 private:
 	void drawClosed(RenderWindow& window);
 	void drawOpen(RenderWindow& window);

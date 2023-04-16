@@ -5,10 +5,8 @@ void Button::init(Vector2f pos, Vector2f size, std::string buttonMessage)
     conf = config::get();
     buttonRect.setPosition(pos);
     buttonRect.setSize(size);
-    buttonRect.setFillColor(conf->getButtonCol());
-    buttonRect.setOutlineColor(conf->getOutlineCol());
-    buttonRect.setOutlineThickness(conf->getOutlineThickness());
- 
+    setStyle();
+
     buttonText.setMessage(buttonMessage);
     buttonText.setPosition(Vector2f(pos.x + 5,pos.y));
 }
@@ -25,4 +23,10 @@ bool Button::isPressed(RenderWindow& window,Mouse mouse, Event event)
         buttonRect.getGlobalBounds().contains(Vector2f(mouse.getPosition(window))))
         return true;
     return false;
+}
+
+void Button::setStyle(){
+    buttonRect.setFillColor(conf->getButtonCol());
+    buttonRect.setOutlineColor(conf->getOutlineCol());
+    buttonRect.setOutlineThickness(conf->getOutlineThickness());
 }

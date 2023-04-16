@@ -63,7 +63,12 @@ void Main::update()
 					path = stylesDir + "style" + std::to_string(curStyle) + ".conf";
 					sloader.loadStyle(path);
 				}
+				randomize.setStyle();
+				algSelection.setStyle();
 			}
+
+			//randomize with r
+			if(event.type == Event::KeyPressed && event.key.code == Keyboard::R) init();
 		}
 
 		updateAlgorithmSelection();

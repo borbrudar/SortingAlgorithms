@@ -9,20 +9,22 @@ void AlgoDraw::draw(RenderWindow &window){
         for(int j = 0; j < colorInd.size();j++) if(colorInd[j] == i) color = j;
 
         if(color != -1){
-            if(color == colorInd.size()-1) block.setFillColor(highlightCol);
+            if(color == colorInd.size()-1) block.setFillColor(conf->getHighlightCol());
             else {
                 double mult = (double) colorInd.size()/ (color+1);
-                block.setFillColor(Color(fadeCol.r * (fade[0]? 1 : mult),fadeCol.g * (fade[1] ? 1: mult),fadeCol.b * (fade[2] ? 1 : mult)));  
+                block.setFillColor(Color(conf->getFadeCol().r * (conf->getFade()[0]? 1 : mult),
+                conf->getFadeCol().g * (conf->getFade()[1] ? 1: mult),conf->getFadeCol().b * (conf->getFade()[2] ? 1 : mult)));  
             }
         }
 
         window.draw(block);
-        if(color != -1) block.setFillColor(arrayCol);
+        if(color != -1) block.setFillColor(conf->getArrayCol());
     }
 }
 
 void AlgoDraw::setup(std::vector<int> &&vec, std::vector<std::pair<int,int>> &&swaps)
 {
+    conf = config::get();
     colorInd.clear();
     this->vec.clear(),this->swaps.clear();
     this->vec = std::move(vec);
@@ -30,7 +32,7 @@ void AlgoDraw::setup(std::vector<int> &&vec, std::vector<std::pair<int,int>> &&s
     swapPos = 0;
     unitLength = (double)SCR_HEIGHT / this->vec.size() * maxLengthPercentage; 
     unitWidth = (double)SCR_WIDTH / this->vec.size();
-    block.setFillColor(arrayCol);
+    block.setFillColor(conf->getArrayCol());
 }
 
 void AlgoDraw::update()

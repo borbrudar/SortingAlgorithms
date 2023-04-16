@@ -1,15 +1,15 @@
 #include "StringU.h"
-#include "config.h"
 
 StringU::StringU() 
 {
-	font.loadFromFile(usedFont);
+	conf = config::get();
+	font.loadFromFile(conf->getUsedFont());
 
 	text.setFont(font);
 	text.setCharacterSize(fontSize);
-	text.setFillColor(fontInner);
-	text.setOutlineColor(outlineColor);
-	text.setOutlineThickness(outlineThickness);
+	text.setFillColor(conf->getFontCol());
+	text.setOutlineColor(conf->getOutlineCol());
+	text.setOutlineThickness(conf->getOutlineThickness());
 }
 
 

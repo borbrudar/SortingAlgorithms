@@ -1,13 +1,13 @@
 #include "Button.h"
-#include "config.h"
 
 void Button::init(Vector2f pos, Vector2f size, std::string buttonMessage)
 {
+    conf = config::get();
     buttonRect.setPosition(pos);
     buttonRect.setSize(size);
-    buttonRect.setFillColor(buttonColor);
-    buttonRect.setOutlineColor(outlineColor);
-    buttonRect.setOutlineThickness(outlineThickness);
+    buttonRect.setFillColor(conf->getButtonCol());
+    buttonRect.setOutlineColor(conf->getOutlineCol());
+    buttonRect.setOutlineThickness(conf->getOutlineThickness());
  
     buttonText.setMessage(buttonMessage);
     buttonText.setPosition(Vector2f(pos.x + 5,pos.y));

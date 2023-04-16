@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <string>
+#include "config.h"
 
 using namespace sf;
 
@@ -15,4 +16,5 @@ public:
 private:
 	Font font;
 	Text text;
+	config *conf;
 };

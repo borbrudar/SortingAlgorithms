@@ -33,6 +33,8 @@ endif()
 
 #source files
 set(SOURCES
+    config
+    StyleLoader
     AlgoDraw
     Bubble
     Button 

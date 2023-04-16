@@ -4,6 +4,7 @@
 
 Main::Main()
 {
+	conf = config::get();
 	sortingAlgorithm = std::make_unique<Bubble>();
 	sortingInit();
 
@@ -16,6 +17,7 @@ Main::Main()
 	pass.push_back("Algorithms v");
 	algSelection.init(6, Vector2f(SCR_WIDTH-2*100 - 20, 10), Vector2f(100, 25), pass);
 
+	sloader.loadStyle("styles/style1.conf");
 }
 
 void Main::run()
@@ -28,7 +30,7 @@ void Main::run()
 
 void Main::draw()
 {
-	window.clear(backgroundCol);
+	window.clear(conf->getBackgroundCol());
 
 	adraw.draw(window);
 	drawStrings();
@@ -118,6 +120,9 @@ void Main::drawStrings()
 
 	std::string time = "Execution time: " + std::to_string(etime) + " microseconds";
 	string.drawString(window, Vector2f(20, 90), time);
+
+	std::string style = "Current style: " + conf->getStyleName();
+	string.drawString(window, Vector2f(20, 110), style);
 }
 
 void Main::updateAlgorithmSelection()

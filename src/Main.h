@@ -13,6 +13,7 @@
 #include "Quick.h"
 #include "StringU.h"
 #include "AlgoDraw.h"
+#include "StyleLoader.h"
 
 
 using namespace sf;
@@ -45,5 +46,10 @@ private:
 	int algorithmNumber = 0,delay = 0, writes = 0,etime=0,vectorSize = 200;
 	Clock clock;
 	AlgoDraw adraw;
+	
+	StyleLoader sloader;
+	int curStyle = 0;
+
+	config* conf;
 };
 

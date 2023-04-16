@@ -17,6 +17,8 @@ private:
     double unitWidth,unitLength=0;
     RectangleShape block;
     std::deque<int> colorInd;
+
+    config *conf;
 };
 
 

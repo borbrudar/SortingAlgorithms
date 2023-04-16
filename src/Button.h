@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "StringU.h"
+#include "config.h"
 
 using namespace sf;
 
@@ -12,5 +13,6 @@ public:
 private:
 	RectangleShape buttonRect;
 	StringU buttonText;
+	config *conf;
 };
 

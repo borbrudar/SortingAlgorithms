@@ -7,7 +7,7 @@ Main::Main()
 	sortingAlgorithm = std::make_unique<Bubble>();
 	sortingInit();
 
-	window.create(VideoMode(SCR_WIDTH, SCR_HEIGHT), "Sorting Algorithms");
+	window.create(VideoMode(SCR_WIDTH, SCR_HEIGHT), "Sorting Algorithms", Style::Titlebar | Style::Close);
 
 	randomize.init(Vector2f(SCR_WIDTH-100-10, 10), Vector2f(100, 25), "Randomize");
 	init();

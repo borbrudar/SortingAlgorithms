@@ -1,12 +1,10 @@
 #include <SFML/Graphics.hpp>
-#include "Game.h"
+#include "Main.h"
 
 using namespace sf;
 
 int main() {
-	Game game;
-
-	game.run();
-
+	Main m;
+	m.run();
 	return 0;
 }

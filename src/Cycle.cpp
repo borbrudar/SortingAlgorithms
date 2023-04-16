@@ -2,38 +2,11 @@
 
 void Cycle::sortArray()
 {
-	if (isParsing) sortCycles();
-}
-
-void Cycle::sortCycles()
-{
-	for (int i = 0; i < vector.size(); i++) {
-		if (vector[i] == nextValue) {
-			if (nextValue == i) chooseNextCycle(vector.size());
-
-			sortedValues.push_back(nextValue);
-			std::iter_swap(vector.begin() + nextValue, vector.begin() + i);
-			nextValue = vector[i];
-			updateColorArray(vector[i]);
-
-			break;
-		}
-	}
-}
-
-void Cycle::chooseNextCycle(int vectorSize)
-{
-	int nextCycleBegging = 0;
-
-	for (int i = 0; i < sortedValues.size(); i++) {
-		if (nextCycleBegging == sortedValues[i]) {
-			nextCycleBegging++;
-			i = 0; 
-			continue;
-		}
-	}
-
-	if (nextCycleBegging == vectorSize) isParsing = false;
-	else nextValue = nextCycleBegging;
-
+    for(int i = 0;i < vectorSize;i++){
+        while(vec[i] != i+1){
+            swaps.push_back({i,vec[vec[i]-1]});
+            swaps.push_back({vec[i]-1,vec[i]});
+            std::swap(vec[vec[i]-1],vec[i]);
+        }
+    }
 }

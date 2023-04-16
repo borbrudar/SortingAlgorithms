@@ -12,23 +12,27 @@
 #include "Merge.h"
 #include "Quick.h"
 #include "StringU.h"
+#include "AlgoDraw.h"
+#include "StyleLoader.h"
+
 
 using namespace sf;
-class Game {
+class Main {
 public:
-	Game();
+	Main();
 	void run();
 
-	const int SCR_WIDTH = 640, SCR_HEIGHT = SCR_WIDTH / 4 * 3;
 private:
-	void drawGame();
-	void updateGame();
+	void draw();
+	void update();
 	void init();
 
 	void drawButtons();
 	void drawStrings();
 
 	void updateAlgorithmSelection();
+	void sortingInit();
+
 
 	RenderWindow window;
 	Event event;
@@ -39,9 +43,13 @@ private:
 
 	Button randomize;
 	Dropdown algSelection;
-	int algorithmNumber = 0;
+	int algorithmNumber = 0,delay = 0, writes = 0,etime=0,vectorSize = 200;
+	Clock clock;
+	AlgoDraw adraw;
+	
+	StyleLoader sloader;
+	int curStyle = 0;
 
-	int stepDelay = 0;
-	int arraySize = 80;
+	config* conf;
 };
 

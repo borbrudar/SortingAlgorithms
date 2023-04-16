@@ -2,13 +2,12 @@
 
 StringU::StringU() 
 {
-	font.loadFromFile("font/arial.ttf");
+	conf = config::get();
+	font.loadFromFile(conf->getUsedFont());
 
 	text.setFont(font);
-	text.setCharacterSize(16);
-	text.setFillColor(Color::White);
-	text.setOutlineColor(Color::Black);
-	text.setOutlineThickness(1.5f);
+	text.setCharacterSize(fontSize);
+	setStyle();	
 }
 
 
@@ -34,3 +33,9 @@ void StringU::setMessage(std::string message)
 	text.setString(message);
 }
 
+void StringU::setStyle()
+{
+	text.setFillColor(conf->getFontCol());
+	text.setOutlineColor(conf->getOutlineCol());
+	text.setOutlineThickness(conf->getOutlineThickness());
+}

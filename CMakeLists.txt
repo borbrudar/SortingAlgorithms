@@ -33,18 +33,18 @@ endif()
 
 #source files
 set(SOURCES
-    BinaryTree
+    config
+    StyleLoader
+    AlgoDraw
     Bubble
-    Bucket
     Button 
     Cycle 
     Dropdown
-    Game 
+    Main 
     Insertion 
     main    
     Merge 
     Quick  
-    QuickTree 
     Selection 
     SortingAlgorithm
     StringU
@@ -76,8 +76,9 @@ if(WIN32)
         ${CMAKE_CURRENT_BINARY_DIR})
 endif()
 
-#copy fonts
-file(COPY font DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
+#copy fonts and styles
+file(COPY fonts DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
+file(COPY styles DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
 
 #add sfml
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/external/SFML")
@@ -87,7 +88,8 @@ target_link_libraries(${PR_NAME} sfml-graphics sfml-audio)
 install(TARGETS ${PR_NAME} 
 RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/font DESTINATION ${CMAKE_INSTALL_BINDIR})
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/fonts DESTINATION ${CMAKE_INSTALL_BINDIR})
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/styles DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 if(WIN32)
     #sfml

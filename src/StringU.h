@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <string>
+#include "config.h"
 
 using namespace sf;
 
@@ -12,7 +13,9 @@ public:
 
 	void setPosition(Vector2f pos);
 	void setMessage(std::string message);
+	void setStyle();
 private:
 	Font font;
 	Text text;
+	config *conf;
 };

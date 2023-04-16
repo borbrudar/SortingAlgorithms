@@ -1,8 +1,8 @@
-#include "Main.h"
+#include "Alg.h"
 #include <cassert>
 #include <chrono>
 
-Main::Main()
+Alg::Alg()
 {
 	conf = config::get();
 	sortingAlgorithm = std::make_unique<Bubble>();
@@ -20,7 +20,7 @@ Main::Main()
 	sloader.loadStyle("styles/style0.conf");
 }
 
-void Main::run()
+void Alg::run()
 {
 	while (window.isOpen()) {
 		update();
@@ -28,7 +28,7 @@ void Main::run()
 	}
 }
 
-void Main::draw()
+void Alg::draw()
 {
 	window.clear(conf->getBackgroundCol());
 
@@ -39,7 +39,7 @@ void Main::draw()
 	window.display();
 }
 
-void Main::update()
+void Alg::update()
 {
 	while (window.pollEvent(event)) {
 		if (event.type == Event::Closed) window.close();
@@ -83,7 +83,7 @@ void Main::update()
 	}
 }
 
-void Main::init()
+void Alg::init()
 {
 	int prevStepDelay;
 	bool isPrevDelay;
@@ -116,13 +116,13 @@ void Main::init()
 }
 
 
-void Main::drawButtons()
+void Alg::drawButtons()
 {
 	randomize.drawButton(window);
 	algSelection.drawDropdown(window);
 }
 
-void Main::drawStrings()
+void Alg::drawStrings()
 {
 	std::string algName = "Using: " + names[algorithmNumber] + " Sort";
 	string.drawString(window, Vector2f(20, 10), algName);
@@ -143,7 +143,7 @@ void Main::drawStrings()
 	string.drawString(window, Vector2f(20, 110), style);
 }
 
-void Main::updateAlgorithmSelection()
+void Alg::updateAlgorithmSelection()
 {
 	int newAlgorithmNumber = algSelection.updateDropdown(window, mouse, event);
 	if (newAlgorithmNumber != -1) {
@@ -152,7 +152,7 @@ void Main::updateAlgorithmSelection()
 	}
 }
 
-void Main::sortingInit()
+void Alg::sortingInit()
 {
 	sortingAlgorithm->randomize(vectorSize);
 	auto vec = sortingAlgorithm->getVec();

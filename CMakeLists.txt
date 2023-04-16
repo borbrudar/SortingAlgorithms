@@ -3,8 +3,8 @@ if(WIN32)
     #no spaces in path
     set(CMAKE_INSTALL_PREFIX C:/ CACHE PATH "default path" FORCE)
 endif()
-set(PR_NAME Sorting)
-project(${PR_NAME} VERSION 0.1.1)
+set(PR_NAME SortingAlgorithms)
+project(${PR_NAME} VERSION 1.0.0)
 set(CMAKE_CXX_STANDARD)
 
 include(GNUInstallDirs)
@@ -40,7 +40,7 @@ set(SOURCES
     Button 
     Cycle 
     Dropdown
-    Main 
+    Alg 
     Insertion 
     main    
     Merge 
@@ -106,7 +106,9 @@ elseif(UNIX)
 endif()
 
 #-------PACKAGING------------------------------------
+include(CPack) 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
-include(CPack) 
+set(CPACK_PACKAGE_NAME ${PROJECT_NAME})
+set(CPACK_PACKAGE_VERSION 1.0.0)
 

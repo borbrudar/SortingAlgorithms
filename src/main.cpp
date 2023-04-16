@@ -1,10 +1,10 @@
 #include <SFML/Graphics.hpp>
-#include "Main.h"
+#include "Alg.h"
 
 using namespace sf;
 
 int main() {
-	Main m;
-	m.run();
+	Alg a;
+	a.run();
 	return 0;
 }

@@ -17,9 +17,9 @@
 
 
 using namespace sf;
-class Main {
+class Alg {
 public:
-	Main();
+	Alg();
 	void run();
 
 private:

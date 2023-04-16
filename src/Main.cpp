@@ -65,6 +65,7 @@ void Main::update()
 				}
 				randomize.setStyle();
 				algSelection.setStyle();
+				string.setStyle();
 			}
 
 			//randomize with r

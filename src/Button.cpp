@@ -27,6 +27,7 @@ bool Button::isPressed(RenderWindow& window,Mouse mouse, Event event)
 
 void Button::setStyle(){
     buttonRect.setFillColor(conf->getButtonCol());
-    buttonRect.setOutlineColor(conf->getOutlineCol());
+    buttonRect.setOutlineColor(conf->getButtonOutlineCol());
     buttonRect.setOutlineThickness(conf->getOutlineThickness());
+    buttonText.setStyle();
 }

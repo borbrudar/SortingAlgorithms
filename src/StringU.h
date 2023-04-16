@@ -13,6 +13,7 @@ public:
 
 	void setPosition(Vector2f pos);
 	void setMessage(std::string message);
+	void setStyle();
 private:
 	Font font;
 	Text text;

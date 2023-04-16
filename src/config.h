@@ -30,7 +30,7 @@ private:
     sf::Color outlineCol;
     sf::Color fontCol; 
     sf::Color buttonCol; 
-
+    sf::Color buttonOutlineCol;
 
 // singleton stuff
     static config* cptr;
@@ -49,6 +49,7 @@ private:
         outlineCol= Color(0,0,0); 
         fontCol = Color(255,255,255); 
         buttonCol = Color(128,128,128);
+        buttonOutlineCol = Color(0,0,0);
     };
 public:
     //delete constructors
@@ -71,6 +72,7 @@ public:
     Color getOutlineCol(){return outlineCol;};
     Color getFontCol(){ return fontCol;};
     Color getButtonCol() { return buttonCol;};
+    Color getButtonOutlineCol() {return buttonOutlineCol;};
 
 //setters
     void setStyleName(std::string s) {styleName = s;};
@@ -87,5 +89,5 @@ public:
     void setOutlineCol(Color s){outlineCol = s;};
     void setFontCol(Color s){ fontCol = s;};
     void setButtonCol(Color s) { buttonCol = s;};
-
+    void setButtonOutlineCol(Color s) {buttonOutlineCol = s;};
 };

@@ -7,9 +7,7 @@ StringU::StringU()
 
 	text.setFont(font);
 	text.setCharacterSize(fontSize);
-	text.setFillColor(conf->getFontCol());
-	text.setOutlineColor(conf->getOutlineCol());
-	text.setOutlineThickness(conf->getOutlineThickness());
+	setStyle();	
 }
 
 
@@ -35,3 +33,9 @@ void StringU::setMessage(std::string message)
 	text.setString(message);
 }
 
+void StringU::setStyle()
+{
+	text.setFillColor(conf->getFontCol());
+	text.setOutlineColor(conf->getOutlineCol());
+	text.setOutlineThickness(conf->getOutlineThickness());
+}

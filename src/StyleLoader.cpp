@@ -39,13 +39,14 @@ void StyleLoader::modifyVal(const std::string &atr,std::string val){
             }
         }
         //bruteforce
-        if(atr == "arrayCol")           conf->setArrayCol(col);
-        else if(atr == "highlightCol")  conf->setHighlightCol(col);
-        else if(atr == "fadeCol")       conf->setFadeCol(col);
-        else if(atr == "backgroundCol") conf->setBackgroundCol(col);
-        else if(atr == "outlineCol")    conf->setOutlineCol(col);
-        else if(atr == "fontCol")       conf->setFontCol(col);
-        else if(atr == "buttonCol")     conf->setButtonCol(col);
+        if(atr == "arrayCol")               conf->setArrayCol(col);
+        else if(atr == "highlightCol")      conf->setHighlightCol(col);
+        else if(atr == "fadeCol")           conf->setFadeCol(col);
+        else if(atr == "backgroundCol")     conf->setBackgroundCol(col);
+        else if(atr == "outlineCol")        conf->setOutlineCol(col);
+        else if(atr == "fontCol")           conf->setFontCol(col);
+        else if(atr == "buttonCol")         conf->setButtonCol(col);
+        else if(atr == "buttonOutlineCol")  conf->setButtonOutlineCol(col);
     }
 }
   

@@ -15,7 +15,7 @@ void AlgoDraw::draw(RenderWindow &window){
                 block.setFillColor(Color(conf->getFadeCol().r * (conf->getFade()[0]? 1 : mult),
                 conf->getFadeCol().g * (conf->getFade()[1] ? 1: mult),conf->getFadeCol().b * (conf->getFade()[2] ? 1 : mult)));  
             }
-        }
+        }else block.setFillColor(conf->getArrayCol());
 
         window.draw(block);
         if(color != -1) block.setFillColor(conf->getArrayCol());

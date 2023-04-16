@@ -4,7 +4,6 @@
 
 Main::Main()
 {
-	clock.restart();
 	sortingAlgorithm = std::make_unique<Bubble>();
 	sortingInit();
 
@@ -29,8 +28,7 @@ void Main::run()
 
 void Main::draw()
 {
-	Color backgroundColor = Color(64, 64, 64);
-	window.clear(backgroundColor);
+	window.clear(backgroundCol);
 
 	adraw.draw(window);
 	drawStrings();
@@ -44,13 +42,13 @@ void Main::update()
 	while (window.pollEvent(event)) {
 		if (event.type == Event::Closed) window.close();
 		if(event.type == Event::KeyPressed){
-			if(event.key.code == Keyboard::Left) delay -= 5, delay = std::max(delay,0);
-			if(event.key.code == Keyboard::Right) delay += 5;
+			if(event.key.code == Keyboard::Left) delay -= dStep, delay = std::max(delay,0);
+			if(event.key.code == Keyboard::Right) delay += dStep;
 			if(event.key.code == Keyboard::Up){
-				if(vectorSize != maxVectorSize) vectorSize += 50, sortingInit();
+				if(vectorSize != maxVectorSize) vectorSize += dSize, sortingInit();
 			}	
 			if(event.key.code == Keyboard::Down){
-				if(vectorSize != minVectorSize) vectorSize -= 50, sortingInit();
+				if(vectorSize != minVectorSize) vectorSize -= dSize, sortingInit();
 			}
 		}
 

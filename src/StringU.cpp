@@ -6,10 +6,10 @@ StringU::StringU()
 	font.loadFromFile(usedFont);
 
 	text.setFont(font);
-	text.setCharacterSize(16);
-	text.setFillColor(Color::White);
-	text.setOutlineColor(Color::Black);
-	text.setOutlineThickness(1.5f);
+	text.setCharacterSize(fontSize);
+	text.setFillColor(fontInner);
+	text.setOutlineColor(outlineColor);
+	text.setOutlineThickness(outlineThickness);
 }
 
 

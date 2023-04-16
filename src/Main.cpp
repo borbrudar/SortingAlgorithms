@@ -17,7 +17,7 @@ Main::Main()
 	pass.push_back("Algorithms v");
 	algSelection.init(6, Vector2f(SCR_WIDTH-2*100 - 20, 10), Vector2f(100, 25), pass);
 
-	sloader.loadStyle("styles/style1.conf");
+	sloader.loadStyle("styles/style0.conf");
 }
 
 void Main::run()
@@ -44,6 +44,7 @@ void Main::update()
 	while (window.pollEvent(event)) {
 		if (event.type == Event::Closed) window.close();
 		if(event.type == Event::KeyPressed){
+			//inc/dec delay and/or vector size 
 			if(event.key.code == Keyboard::Left) delay -= dStep, delay = std::max(delay,0);
 			if(event.key.code == Keyboard::Right) delay += dStep;
 			if(event.key.code == Keyboard::Up){
@@ -51,6 +52,17 @@ void Main::update()
 			}	
 			if(event.key.code == Keyboard::Down){
 				if(vectorSize != minVectorSize) vectorSize -= dSize, sortingInit();
+			}
+
+			//cycle through styles
+			if(event.key.code == Keyboard::N) {
+				curStyle++;
+				std::string path = stylesDir + "style" + std::to_string(curStyle) + ".conf";
+				if(!sloader.loadStyle(path)) {
+					curStyle = 0;
+					path = stylesDir + "style" + std::to_string(curStyle) + ".conf";
+					sloader.loadStyle(path);
+				}
 			}
 		}
 
